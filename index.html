@@ -77,10 +77,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-tcpdump-命令行工具抓包" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2020/06/02/hello-world/" class="article-date">
-  <time class="dt-published" datetime="2020-06-02T09:25:01.344Z" itemprop="datePublished">2020-06-02</time>
+    <a href="/2020/04/03/tcpdump-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7%E6%8A%93%E5%8C%85/" class="article-date">
+  <time class="dt-published" datetime="2020-04-03T04:50:42.000Z" itemprop="datePublished">2020-04-03</time>
 </a>
     
   </div>
@@ -91,7 +91,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2020/06/02/hello-world/">Hello World</a>
+      <a class="p-name article-title" href="/2020/04/03/tcpdump-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7%E6%8A%93%E5%8C%85/">tcpdump 命令行工具抓包</a>
     </h1>
   
 
@@ -99,24 +99,181 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+        <h4 id="tcpdump-命令行工具抓包"><a href="#tcpdump-命令行工具抓包" class="headerlink" title="tcpdump 命令行工具抓包"></a>tcpdump 命令行工具抓包</h4><p>tcpdump 命令行抓包工具，抓取测试服务器的网络流量</p>
+<p><strong>1、安装tcpdump</strong></p>
+<p>先确认tcpdump是否安装（备注：必须root权限）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo su - root</span><br><span class="line">$ tcpdump</span><br><span class="line">tcpdump: no suitable device found</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
+<p>安装：
+        
+          <p class="article-more-link">
+            <a href="/2020/04/03/tcpdump-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7%E6%8A%93%E5%8C%85/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/06/02/hello-world/" data-id="ckayr2k0v0000149b8v61b3a5" data-title="Hello World" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2020/04/03/tcpdump-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7%E6%8A%93%E5%8C%85/" data-id="ckaywfofz000vac9bhwim0d19" data-title="tcpdump 命令行工具抓包" class="article-share-link">分享</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%93%E5%8C%85/" rel="tag">抓包</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-常用辅助测试工具" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2019/09/03/%E5%B8%B8%E7%94%A8%E8%BE%85%E5%8A%A9%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/" class="article-date">
+  <time class="dt-published" datetime="2019-09-03T15:17:47.000Z" itemprop="datePublished">2019-09-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2019/09/03/%E5%B8%B8%E7%94%A8%E8%BE%85%E5%8A%A9%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/">常用辅助测试工具“</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h4 id="常用软件"><a href="#常用软件" class="headerlink" title="常用软件"></a>常用软件</h4><table>
+<thead>
+<tr>
+<th>软件</th>
+<th>解释</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Charles/Fiddler/Wireshark</td>
+<td>抓包工具</td>
+<td>抓包客户端</td>
+</tr>
+<tr>
+<td>curl</td>
+<td></td>
+<td>接口请求模拟；终端</td>
+</tr>
+<tr>
+<td>Postman</td>
+<td>接口请求</td>
+<td>接口请求模拟；用例管理；环境管理；客户端</td>
+</tr>
+<tr>
+<td>lyrebird</td>
+<td>抓包开源框架；可二次开发</td>
+<td><a href="https://github.com/Meituan-Dianping/lyrebird" target="_blank" rel="noopener">https://github.com/Meituan-Dianping/lyrebird</a></td>
+</tr>
+<tr>
+<td>Xmind</td>
+<td>思维导图</td>
+<td></td>
+</tr>
+<tr>
+<td>Sourcetree</td>
+<td>git可视化客户端</td>
+<td></td>
+</tr>
+<tr>
+<td>Appium</td>
+<td>跨平台UI自动化客户端</td>
+<td></td>
+</tr>
+<tr>
+<td>Appetizer</td>
+<td>移动测试以及数据分析平台</td>
+<td></td>
+</tr>
+<tr>
+<td>Navicat Premiun</td>
+<td>数据库可视化客户端</td>
+<td></td>
+</tr>
+<tr>
+<td>DBeaver</td>
+<td>数据库可视化客户端</td>
+<td><a href="https://dbeaver.io/" target="_blank" rel="noopener">https://dbeaver.io/</a></td>
+</tr>
+<tr>
+<td>Jmeter</td>
+<td>接口压测工具</td>
+<td></td>
+</tr>
+<tr>
+<td>Beyond Compare</td>
+<td>文件对比</td>
+<td></td>
+</tr>
+</tbody></table>
+        
+          <p class="article-more-link">
+            <a href="/2019/09/03/%E5%B8%B8%E7%94%A8%E8%BE%85%E5%8A%A9%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/09/03/%E5%B8%B8%E7%94%A8%E8%BE%85%E5%8A%A9%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/" data-id="ckaywfog0000wac9besazhs6o" data-title="常用辅助测试工具“" class="article-share-link">分享</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/" rel="tag">测试工具</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Locust-任意非http协议的接口压测实现" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2019/08/25/Locust-%E4%BB%BB%E6%84%8F%E9%9D%9Ehttp%E5%8D%8F%E8%AE%AE%E7%9A%84%E6%8E%A5%E5%8F%A3%E5%8E%8B%E6%B5%8B%E5%AE%9E%E7%8E%B0/" class="article-date">
+  <time class="dt-published" datetime="2019-08-25T12:48:27.000Z" itemprop="datePublished">2019-08-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2019/08/25/Locust-%E4%BB%BB%E6%84%8F%E9%9D%9Ehttp%E5%8D%8F%E8%AE%AE%E7%9A%84%E6%8E%A5%E5%8F%A3%E5%8E%8B%E6%B5%8B%E5%AE%9E%E7%8E%B0/">Locust 任意非http协议的接口压测实现</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h5 id="Locust-任意非-http-协议的接口压测实现"><a href="#Locust-任意非-http-协议的接口压测实现" class="headerlink" title="Locust 任意非 http 协议的接口压测实现"></a>Locust 任意非 http 协议的接口压测实现</h5><p>Locust 只内置了 http client，一般的 http 接口 Locust 能够实现直接压测，不过其他协议接口如 socket、websocket、grpc 等只能通过自定义 client 方法进行扩展。</p>
+<p>如果已经写好了接口功能测试代码，又想集成到 Locust 实现压测怎么办，以下以 socket 为实例，展示 Locust 如何扩展任意协议接口压测。</p>
+<p>tcp_server.py 被压测 socket 服务代码：
+        
+          <p class="article-more-link">
+            <a href="/2019/08/25/Locust-%E4%BB%BB%E6%84%8F%E9%9D%9Ehttp%E5%8D%8F%E8%AE%AE%E7%9A%84%E6%8E%A5%E5%8F%A3%E5%8E%8B%E6%B5%8B%E5%AE%9E%E7%8E%B0/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/08/25/Locust-%E4%BB%BB%E6%84%8F%E9%9D%9Ehttp%E5%8D%8F%E8%AE%AE%E7%9A%84%E6%8E%A5%E5%8F%A3%E5%8E%8B%E6%B5%8B%E5%AE%9E%E7%8E%B0/" data-id="ckaywfofm000fac9b4mn733uv" data-title="Locust 任意非http协议的接口压测实现" class="article-share-link">分享</a>
       
       
       
@@ -128,7 +285,448 @@
 
 
   
+    <article id="post-Python-编码规范" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2019/07/03/Python-%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/" class="article-date">
+  <time class="dt-published" datetime="2019-07-03T03:22:02.000Z" itemprop="datePublished">2019-07-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2019/07/03/Python-%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/">Python编码规范</a>
+    </h1>
+  
 
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="1、介绍"><a href="#1、介绍" class="headerlink" title="1、介绍"></a><strong>1、介绍</strong></h3><p><strong>1.1 开发背景</strong></p>
+<p>为了提高组内自动化开发效率，避免重复开发，对组内各模块已开发的自动化lib 库、case 中常用的操作、以及其他工具的调用接口进行汇总，管理出测试组内自动化 case 开发的基础库baseLib</p>
+<p><strong>1.2 语言</strong></p>
+<p>基础库采用 python 开发。需要调用的相关二进制工具的地方，为降低开发成本，暂采用直接调该工具，封出 python 方法接口。</p>
+        
+          <p class="article-more-link">
+            <a href="/2019/07/03/Python-%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/07/03/Python-%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/" data-id="ckaywfoft000nac9b7hkr09bw" data-title="Python编码规范" class="article-share-link">分享</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Locust-分布式压测" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2019/02/25/Locust-%E5%88%86%E5%B8%83%E5%BC%8F%E5%8E%8B%E6%B5%8B/" class="article-date">
+  <time class="dt-published" datetime="2019-02-25T15:43:40.000Z" itemprop="datePublished">2019-02-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2019/02/25/Locust-%E5%88%86%E5%B8%83%E5%BC%8F%E5%8E%8B%E6%B5%8B/">Locust 分布式压测</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h5 id="Locust分布式压测"><a href="#Locust分布式压测" class="headerlink" title="Locust分布式压测"></a>Locust分布式压测</h5><p>如果从整体功能上来看的话，Locust的功能的确比较单薄。不过，作为性能测试工具最核心的压力发生器部分，却是非常不错的。</p>
+<p>首先是模拟用户操作，也就是测试脚本描述方面。Locust采用Pure Python脚本描述，并且HTTP请求完全基于Requests库。用过Requests的都知道，这个库非常简洁易用，但功能十分强大，很多其它编程语言的HTTP库都借鉴了它的思想和模式，如果将其评选为最好用的HTTP库之一（不限语言），应该也不会有太大的争议。除了HTTP(S)协议，Locust也可以测试其它任意协议的系统，只需要采用Python调用对应的库进行请求描述即可。</p>
+        
+          <p class="article-more-link">
+            <a href="/2019/02/25/Locust-%E5%88%86%E5%B8%83%E5%BC%8F%E5%8E%8B%E6%B5%8B/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/02/25/Locust-%E5%88%86%E5%B8%83%E5%BC%8F%E5%8E%8B%E6%B5%8B/" data-id="ckaywfofn000gac9beps14d63" data-title="Locust 分布式压测" class="article-share-link">分享</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Locust/" rel="tag">Locust</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95/" rel="tag">压力测试</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Python-常用第三方库" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2019/01/03/Python-%E5%B8%B8%E7%94%A8%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/" class="article-date">
+  <time class="dt-published" datetime="2019-01-03T14:14:30.000Z" itemprop="datePublished">2019-01-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2019/01/03/Python-%E5%B8%B8%E7%94%A8%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/">Python 常用第三方库</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <table>
+<thead>
+<tr>
+<th>类型</th>
+<th>名称</th>
+<th>解释</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>常用第三方库</td>
+<td>requests</td>
+<td>python http请求</td>
+<td><a href="https://2.python-requests.org//zh_CN/latest/user/quickstart.html" target="_blank" rel="noopener">https://2.python-requests.org//zh_CN/latest/user/quickstart.html</a></td>
+</tr>
+<tr>
+<td></td>
+<td>Django</td>
+<td>python界最流行的web框架</td>
+<td><a href="https://docs.djangoproject.com/zh-hans/2/2" target="_blank" rel="noopener">https://docs.djangoproject.com/zh-hans/2/2</a></td>
+</tr>
+<tr>
+<td></td>
+<td>flask</td>
+<td>web微框架</td>
+<td><a href="https://dormousehole.readthedocs.io/en/latest" target="_blank" rel="noopener">https://dormousehole.readthedocs.io/en/latest</a></td>
+</tr>
+<tr>
+<td></td>
+<td>selenium</td>
+<td>浏览器自动化测试工具selenium的python接口</td>
+<td><a href="https://selenium-python-zh.readthedocs.io/en/latest" target="_blank" rel="noopener">https://selenium-python-zh.readthedocs.io/en/latest</a></td>
+</tr>
+<tr>
+<td></td>
+<td>openpyxl</td>
+<td>读写excel2010 xlsx/xlsm/xltx/xltm文件</td>
+<td><a href="https://openpyxl.readthedocs.io/en/stable" target="_blank" rel="noopener">https://openpyxl.readthedocs.io/en/stable</a></td>
+</tr>
+<tr>
+<td></td>
+<td>csvkit</td>
+<td>用于转换和操作CSV</td>
+<td><a href="https://openpyxl.readthedocs.io/en/stable/" target="_blank" rel="noopener">https://openpyxl.readthedocs.io/en/stable/</a></td>
+</tr>
+<tr>
+<td></td>
+<td>mysqlclient</td>
+<td>python的MySQL数据库连接器</td>
+<td><a href="https://mysqlclient.readthedocs.io/" target="_blank" rel="noopener">https://mysqlclient.readthedocs.io/</a></td>
+</tr>
+<tr>
+<td></td>
+<td>Scrapy</td>
+<td>爬虫框架</td>
+<td><a href="https://docs.scrapy.org/en/latest/" target="_blank" rel="noopener">https://docs.scrapy.org/en/latest/</a></td>
+</tr>
+<tr>
+<td></td>
+<td>pytest</td>
+<td>Python 测试工具</td>
+<td><a href="https://learning-pytest.readthedocs.io/zh/latest/" target="_blank" rel="noopener">https://learning-pytest.readthedocs.io/zh/latest/</a></td>
+</tr>
+<tr>
+<td></td>
+<td>locust</td>
+<td>可扩展的性能测试工具</td>
+<td><a href="https://docs.locust.io/en/stable/" target="_blank" rel="noopener">https://docs.locust.io/en/stable/</a></td>
+</tr>
+<tr>
+<td></td>
+<td>code2flow</td>
+<td>把Python和JavaScript代码转换为流程图</td>
+<td><a href="https://github.com/scottrogowski/code2flow" target="_blank" rel="noopener">https://github.com/scottrogowski/code2flow</a></td>
+</tr>
+<tr>
+<td></td>
+<td>supervisor</td>
+<td>UNIX的进程控制系统</td>
+<td><a href="http://supervisord.org/" target="_blank" rel="noopener">http://supervisord.org</a></td>
+</tr>
+<tr>
+<td>环境管理</td>
+<td>pyenv</td>
+<td>简单的python版本管理工具</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>virtualenv</td>
+<td>创建独立python环境</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>nvm</td>
+<td>node/npm版本管理</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>pip</td>
+<td>管理和安装python包的工具</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Homebrew</td>
+<td>Mac 软件包管理工具</td>
+<td></td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/01/03/Python-%E5%B8%B8%E7%94%A8%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/" data-id="ckaywfofs000lac9baja585up" data-title="Python 常用第三方库" class="article-share-link">分享</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/" rel="tag">第三方库</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Android-App-专项测试" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2018/10/03/Android-App-%E4%B8%93%E9%A1%B9%E6%B5%8B%E8%AF%95/" class="article-date">
+  <time class="dt-published" datetime="2018-10-03T04:23:00.000Z" itemprop="datePublished">2018-10-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2018/10/03/Android-App-%E4%B8%93%E9%A1%B9%E6%B5%8B%E8%AF%95/">Android App 专项测试</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="Android-App-专项测试"><a href="#Android-App-专项测试" class="headerlink" title="Android App 专项测试"></a>Android App 专项测试</h3><p>Andriod App 专项测试范围：兼容性、流量、电量、弱网、稳定性、安全性和环境相关测试</p>
+<p>App 在进行了功能测试、跑自动化测试用例、性能测试之后，测试工作看似比较完整了，但是当 App 日活上来之后，覆盖更多机型和环境，会有很多没有预料到的问题的反馈，比如：<br>* Crash、闪退、无响应、数据丢失<br>* 设备兼容性问题<br>* 流量使用多<br>* 耗电量快<br>* 弱网环境下无法使用<br>* 安装后无法删除或者无法安装成功<br>* 后台自动运行<br>* 在不同的网络情况下不稳定，比如卡死和白屏的问题</p>
+<p>这些问题都是常规测试方法难以找出的，所以有必要引入专项测试</p>
+        
+          <p class="article-more-link">
+            <a href="/2018/10/03/Android-App-%E4%B8%93%E9%A1%B9%E6%B5%8B%E8%AF%95/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/10/03/Android-App-%E4%B8%93%E9%A1%B9%E6%B5%8B%E8%AF%95/" data-id="ckaywfoem0000ac9b9hx5g7v2" data-title="Android App 专项测试" class="article-share-link">分享</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%B8%93%E9%A1%B9%E6%B5%8B%E8%AF%95/" rel="tag">专项测试</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Centos7-安装部署-HttpRunnerManager" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2018/07/03/Centos7-%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2-HttpRunnerManager/" class="article-date">
+  <time class="dt-published" datetime="2018-07-03T15:52:40.000Z" itemprop="datePublished">2018-07-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2018/07/03/Centos7-%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2-HttpRunnerManager/">Centos7 安装部署 HttpRunnerManager</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h4 id="Centos7-安装部署-HttpRunnerManager-V2-0"><a href="#Centos7-安装部署-HttpRunnerManager-V2-0" class="headerlink" title="Centos7 安装部署 HttpRunnerManager V2.0"></a>Centos7 安装部署 HttpRunnerManager V2.0</h4><p>HttpRunnerManager V2.0此项目是一个基于HttpRunner的接口自动化测试平台，同时HttpRunner 是一款面向 HTTP(S) 协议的通用测试框架</p>
+<p>只需编写维护一份 YAML/JSON 脚本，即可实现自动化测试、性能测试、线上监控、持续集成等多种测试任务</p>
+<p> <strong>一、准备环境和安装包</strong></p>
+<p>主要：CentOS7，HttpRunnerManager V2.0，mysql（MariaDB），python3.7，Django2.1.2，rabbitmq-server-3.7.15
+        
+          <p class="article-more-link">
+            <a href="/2018/07/03/Centos7-%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2-HttpRunnerManager/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/03/Centos7-%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2-HttpRunnerManager/" data-id="ckaywfofe0008ac9b29dt5bb9" data-title="Centos7 安装部署 HttpRunnerManager" class="article-share-link">分享</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HttpRunner/" rel="tag">HttpRunner</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HttpRunnerManager/" rel="tag">HttpRunnerManager</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8E%A5%E5%8F%A3%E5%B9%B3%E5%8F%B0/" rel="tag">接口平台</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Redis-基础操作和常用命令" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2018/07/03/Redis-%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C%E5%92%8C%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="article-date">
+  <time class="dt-published" datetime="2018-07-03T04:09:29.000Z" itemprop="datePublished">2018-07-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2018/07/03/Redis-%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C%E5%92%8C%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">Redis 基础操作和常用命令</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="Redis-基础操作"><a href="#Redis-基础操作" class="headerlink" title="Redis 基础操作"></a>Redis 基础操作</h3><p><strong>一、Redis 介绍</strong></p>
+<p>1、Redis 是一个开源（BSD许可）的，内存中的数据结构存储系统，它可以用作数据库、缓存和消息中间件。 </p>
+<p>2、它支持多种类型的数据结构，如：</p>
+<p> 字符串（strings）， 散列（hashes）， 列表（lists）， 集合（sets）， 有序集合（sorted sets） 与范围查询， bitmaps， hyperloglogs 和 地理空间（geospatial） 索引半径查询。</p>
+<p>3、Redis 内置了复制（replication），LUA脚本（Lua scripting）， LRU驱动事件（LRU eviction），事务（transactions） 和不同级别的 磁盘持久化（persistence）， 并通过 Redis哨兵（Sentinel）和自动 分区（Cluster）提供高可用性（high availability）。</p>
+        
+          <p class="article-more-link">
+            <a href="/2018/07/03/Redis-%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C%E5%92%8C%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/03/Redis-%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C%E5%92%8C%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" data-id="ckaywfofv000qac9ba2b22bk6" data-title="Redis 基础操作和常用命令" class="article-share-link">分享</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Redis/" rel="tag">Redis</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%91%BD%E4%BB%A4/" rel="tag">命令</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Android-手机命令" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2018/07/03/Android-%E6%89%8B%E6%9C%BA%E5%91%BD%E4%BB%A4/" class="article-date">
+  <time class="dt-published" datetime="2018-07-03T03:58:43.000Z" itemprop="datePublished">2018-07-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2018/07/03/Android-%E6%89%8B%E6%9C%BA%E5%91%BD%E4%BB%A4/">Android 获取手机信息命令</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="Android-获取手机信息命令"><a href="#Android-获取手机信息命令" class="headerlink" title="Android 获取手机信息命令"></a>Android 获取手机信息命令</h3><p>手机命令就是指在手机拨号界面输入某些特定的组合键，而出现的某些功能。</p>
+<p>比如输入 *#06# 则会出现 IMEI。也叫手机串号。根据手机的不同，命令也不同，部分通用。</p>
+        
+          <p class="article-more-link">
+            <a href="/2018/07/03/Android-%E6%89%8B%E6%9C%BA%E5%91%BD%E4%BB%A4/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/03/Android-%E6%89%8B%E6%9C%BA%E5%91%BD%E4%BB%A4/" data-id="ckaywfof90005ac9b93u27aw5" data-title="Android 获取手机信息命令" class="article-share-link">分享</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%91%BD%E4%BB%A4/" rel="tag">命令</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">下一页 &raquo;</a>
+  </nav>
 
 </section>
         
@@ -138,15 +736,29 @@
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/API/" rel="tag">API</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HttpRunner/" rel="tag">HttpRunner</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HttpRunnerManager/" rel="tag">HttpRunnerManager</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jmeter/" rel="tag">Jmeter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Locust/" rel="tag">Locust</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Monkey/" rel="tag">Monkey</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/adb/" rel="tag">adb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%93%E9%A1%B9%E6%B5%8B%E8%AF%95/" rel="tag">专项测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95/" rel="tag">压力测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B/" rel="tag">发布流程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%91%BD%E4%BB%A4/" rel="tag">命令</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%95/" rel="tag">安全测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%B5%8B%E8%AF%95%E6%B5%81%E7%A8%8B/" rel="tag">客户端测试流程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" rel="tag">常用命令</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%93%E5%8C%85/" rel="tag">抓包</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8E%A5%E5%8F%A3%E5%B9%B3%E5%8F%B0/" rel="tag">接口平台</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/" rel="tag">接口测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/" rel="tag">测试工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%8B%E8%AF%95%E6%B5%81%E7%A8%8B/" rel="tag">测试流程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B/" rel="tag">测试用例</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%8B%E8%AF%95%E7%AD%96%E7%95%A5/" rel="tag">测试策略</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/" rel="tag">第三方库</a></li></ul>
+    </div>
+  </div>
+
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/API/" style="font-size: 10px;">API</a> <a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/HttpRunner/" style="font-size: 10px;">HttpRunner</a> <a href="/tags/HttpRunnerManager/" style="font-size: 10px;">HttpRunnerManager</a> <a href="/tags/Jmeter/" style="font-size: 10px;">Jmeter</a> <a href="/tags/Locust/" style="font-size: 10px;">Locust</a> <a href="/tags/Monkey/" style="font-size: 10px;">Monkey</a> <a href="/tags/Python/" style="font-size: 13.33px;">Python</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/adb/" style="font-size: 13.33px;">adb</a> <a href="/tags/%E4%B8%93%E9%A1%B9%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">专项测试</a> <a href="/tags/%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95/" style="font-size: 16.67px;">压力测试</a> <a href="/tags/%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B/" style="font-size: 10px;">发布流程</a> <a href="/tags/%E5%91%BD%E4%BB%A4/" style="font-size: 16.67px;">命令</a> <a href="/tags/%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">安全测试</a> <a href="/tags/%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%B5%8B%E8%AF%95%E6%B5%81%E7%A8%8B/" style="font-size: 10px;">客户端测试流程</a> <a href="/tags/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" style="font-size: 10px;">常用命令</a> <a href="/tags/%E6%8A%93%E5%8C%85/" style="font-size: 10px;">抓包</a> <a href="/tags/%E6%8E%A5%E5%8F%A3%E5%B9%B3%E5%8F%B0/" style="font-size: 10px;">接口平台</a> <a href="/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">接口测试</a> <a href="/tags/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">测试工具</a> <a href="/tags/%E6%B5%8B%E8%AF%95%E6%B5%81%E7%A8%8B/" style="font-size: 13.33px;">测试流程</a> <a href="/tags/%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B/" style="font-size: 10px;">测试用例</a> <a href="/tags/%E6%B5%8B%E8%AF%95%E7%AD%96%E7%95%A5/" style="font-size: 13.33px;">测试策略</a> <a href="/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/" style="font-size: 10px;">第三方库</a>
+    </div>
+  </div>
+
   
     
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">九月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a></li></ul>
     </div>
   </div>
 
@@ -159,7 +771,23 @@
       <ul>
         
           <li>
-            <a href="/2020/06/02/hello-world/">Hello World</a>
+            <a href="/2020/04/03/tcpdump-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7%E6%8A%93%E5%8C%85/">tcpdump 命令行工具抓包</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/03/%E5%B8%B8%E7%94%A8%E8%BE%85%E5%8A%A9%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/">常用辅助测试工具“</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/25/Locust-%E4%BB%BB%E6%84%8F%E9%9D%9Ehttp%E5%8D%8F%E8%AE%AE%E7%9A%84%E6%8E%A5%E5%8F%A3%E5%8E%8B%E6%B5%8B%E5%AE%9E%E7%8E%B0/">Locust 任意非http协议的接口压测实现</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/03/Python-%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/">Python编码规范</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/25/Locust-%E5%88%86%E5%B8%83%E5%BC%8F%E5%8E%8B%E6%B5%8B/">Locust 分布式压测</a>
           </li>
         
       </ul>

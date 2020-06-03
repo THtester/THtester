@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Android_adb_常用命令 | TH·tester</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Android adb 常用命令adb 获取设备系统信息命令    命令 用途    adb root 获取 root 权限   adb -s 6cd08ae0 指定设备 device   adb shell 在 pc 端启动 shell 命令终端建议后面命令放引号内防 grep 报错   adb shell;cd &#x2F;system&#x2F;bin;ls 可以列表出大部分可用的命令   adb shell">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android_adb_常用命令">
+<meta property="og:url" content="http://yoursite.com/2018/06/03/Android-adb-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/index.html">
+<meta property="og:site_name" content="TH·tester">
+<meta property="og:description" content="Android adb 常用命令adb 获取设备系统信息命令    命令 用途    adb root 获取 root 权限   adb -s 6cd08ae0 指定设备 device   adb shell 在 pc 端启动 shell 命令终端建议后面命令放引号内防 grep 报错   adb shell;cd &#x2F;system&#x2F;bin;ls 可以列表出大部分可用的命令   adb shell">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-06-03T03:27:00.000Z">
+<meta property="article:modified_time" content="2020-06-03T04:03:45.402Z">
+<meta property="article:author" content="TH·tester">
+<meta property="article:tag" content="Android">
+<meta property="article:tag" content="adb">
+<meta property="article:tag" content="常用命令">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="TH·tester" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">TH·tester</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">90后，软件测试，女又力力成为一名🐮🍺的测试传奇，嘻嘻嘻&lt;(￣︶￣)↗[GO!]</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Android-adb-常用命令" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2018/06/03/Android-adb-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="article-date">
+  <time class="dt-published" datetime="2018-06-03T03:27:00.000Z" itemprop="datePublished">2018-06-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Android_adb_常用命令
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="Android-adb-常用命令"><a href="#Android-adb-常用命令" class="headerlink" title="Android adb 常用命令"></a>Android adb 常用命令</h3><p><strong>adb 获取设备系统信息命令</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>命令</strong></th>
+<th><strong>用途</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>adb root</td>
+<td>获取 root 权限</td>
+</tr>
+<tr>
+<td>adb -s 6cd08ae0</td>
+<td>指定设备 device</td>
+</tr>
+<tr>
+<td>adb shell</td>
+<td>在 pc 端启动 shell 命令终端建议后面命令放引号内防 grep 报错</td>
+</tr>
+<tr>
+<td>adb shell;cd /system/bin;ls</td>
+<td>可以列表出大部分可用的命令</td>
+</tr>
+<tr>
+<td>adb shell wm size</td>
+<td>获取屏幕分辨率</td>
+</tr>
+<tr>
+<td>adb shell wm density</td>
+<td>屏幕密度</td>
+</tr>
+<tr>
+<td>adb shell netstat -alnp</td>
+<td>网络统计</td>
+</tr>
+<tr>
+<td>adb shell getprop ro.build.version.release</td>
+<td>获取 Android 版本号</td>
+</tr>
+<tr>
+<td>adb shell getprop ro.product.model</td>
+<td>获取设备信息</td>
+</tr>
+<tr>
+<td>adb shell getprop ro.product.manufacturer</td>
+<td>获取手机品牌信息</td>
+</tr>
+<tr>
+<td>adb shell ls -al /data/tombstones</td>
+<td>列出目录所有文件</td>
+</tr>
+<tr>
+<td>adb shell rm -rf /path/</td>
+<td>删除目录</td>
+</tr>
+<tr>
+<td>adb shell rm /path/filename</td>
+<td>删除文件</td>
+</tr>
+<tr>
+<td>adb monkey -p /path/appname -v 100</td>
+<td>随机压力测试</td>
+</tr>
+<tr>
+<td>adb shell stop <SERVER></td>
+<td>强行停止某一个服务</td>
+</tr>
+<tr>
+<td>adb shell start <SERVER></td>
+<td>启动某一个服务</td>
+</tr>
+<tr>
+<td>adb shell top</td>
+<td>显示瞬间的进程的资源占用等信息</td>
+</tr>
+<tr>
+<td>adb shell free</td>
+<td>显示当前进程内存使用情况</td>
+</tr>
+<tr>
+<td>adb shell ps</td>
+<td>显示进程的自身标识信息</td>
+</tr>
+<tr>
+<td>adb shell ps | findstr com.android.browser</td>
+<td>获取应用进程信息</td>
+</tr>
+<tr>
+<td>adb shell ifconfig | findstr Mask</td>
+<td>获取 IP 地址</td>
+</tr>
+<tr>
+<td>adb shell cat /proc/cpuinfo</td>
+<td>CPU 信息</td>
+</tr>
+<tr>
+<td>adb shell cat /proc/meminfo</td>
+<td>内存信息</td>
+</tr>
+</tbody></table>
+<p><strong>adb 查看log日志命令</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>命令</strong></th>
+<th><strong>用途</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>adb logcat</td>
+<td>查看日志</td>
+</tr>
+<tr>
+<td>adb logcat -c</td>
+<td>清空日志</td>
+</tr>
+<tr>
+<td>adb logcat -v time -s TAGNAME</td>
+<td>显示自定义的 TAGNAME 并显示时间</td>
+</tr>
+<tr>
+<td>adb logcat -b all</td>
+<td>获取详细日志</td>
+</tr>
+<tr>
+<td>adb logcat &gt; C:\User\admin\Desktop\xxx.log</td>
+<td>将日志保存到桌面xxx.log文件中</td>
+</tr>
+<tr>
+<td>adb logcat &gt; “%date:<del>0,4%-%date:</del>5,2%-%date:<del>8,2% %time:</del>0,2%时%time:<del>3,2%分%time:</del>6,2%.log”</td>
+<td>日期文件名格式保存日志</td>
+</tr>
+<tr>
+<td>adb logcat -v format</td>
+<td>设置日志的输出格式</td>
+</tr>
+<tr>
+<td>adb logcat -v time</td>
+<td>显示格式：日期 时间 优先级/标签（进程ID）：进程名词：日志信息</td>
+</tr>
+<tr>
+<td>adb logcat -v thread</td>
+<td>显示格式：优先级（进程ID：线程ID）标签：日志内容</td>
+</tr>
+<tr>
+<td>adb logcat -v brief</td>
+<td>默认的日志格式：优先级/标签（进程ID）：日志信息</td>
+</tr>
+<tr>
+<td>adb logcat -v process</td>
+<td>显示格式：优先级（进程ID）日志信息</td>
+</tr>
+<tr>
+<td>adb logcat -v tag</td>
+<td>显示格式：优先级/标签：日志信息</td>
+</tr>
+<tr>
+<td>adb logcat -v raw</td>
+<td>显示格式只输出日志信息，不附加任何其他信息，如：优先级、标签等</td>
+</tr>
+<tr>
+<td>adb logcat -v long</td>
+<td>显示格式：[日期 时间 进程ID：线程ID 优先级 /标签] 日志信息</td>
+</tr>
+<tr>
+<td>adb logcat -t n</td>
+<td>显示最近的n行日志</td>
+</tr>
+<tr>
+<td>adb logcat *:V</td>
+<td>显示 Verbose（明细）的日志</td>
+</tr>
+<tr>
+<td>adb logcat *:D</td>
+<td>显示 Debug（调试）以上级别的日志</td>
+</tr>
+<tr>
+<td>adb logcat *:I</td>
+<td>显示 Info（信息）以上级别的日志【默认的日志过滤项】</td>
+</tr>
+<tr>
+<td>adb logcat *:W</td>
+<td>显示 Warn（警告）以上级别的日志</td>
+</tr>
+<tr>
+<td>adb logcat *:E</td>
+<td>显示 Error（错误）以及上级别的日志</td>
+</tr>
+<tr>
+<td>adb logcat *:F</td>
+<td>显示 Fatal（严重错误）以上级别的日志</td>
+</tr>
+<tr>
+<td>adb logcat *:S</td>
+<td>显示 Silent（Super all output）最高的优先级，可能不会记载东西</td>
+</tr>
+<tr>
+<td>adb logcat WifiHW:D *:S</td>
+<td>输出10条 标签为 WifiHW，并且优先级 Debug（调试）等级以上级别的日志(没有*:S会报错)</td>
+</tr>
+<tr>
+<td>adb logcat WifiHW:D dalikvm:I *:S</td>
+<td>输出 标签为 WifiHW，Debug以上级别 和 标签为dalikvm，Info以上级别的日志</td>
+</tr>
+<tr>
+<td>adb shell “logcat | grep Wifi”</td>
+<td>在日志中过滤出有字符串“Wifi“的日志进行显示</td>
+</tr>
+<tr>
+<td>adb shell logcat com.tencent.mm -v time</td>
+<td>通过包名来过滤日志</td>
+</tr>
+<tr>
+<td>adb logcat |findstr com.tencent.mm</td>
+<td>通过包名来过滤日志（如果grep不行的话）</td>
+</tr>
+</tbody></table>
+<p><strong>adb 系统操作命令</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>命令</strong></th>
+<th><strong>用途</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>adb reboot</td>
+<td>重启手机</td>
+</tr>
+<tr>
+<td>adb shell input keyevent <keycode></td>
+<td>模拟按键输入</td>
+</tr>
+<tr>
+<td>adb shell input keyevent 3</td>
+<td>HOME 键</td>
+</tr>
+<tr>
+<td>adb shell input keyevent 4</td>
+<td>返回键</td>
+</tr>
+<tr>
+<td>adb shell input keyevent 164</td>
+<td>静音</td>
+</tr>
+<tr>
+<td>adb shell input text hello</td>
+<td>输入文本</td>
+</tr>
+<tr>
+<td>adb shell input swipe 300 1000 300 500</td>
+<td>向上滑动手势解锁</td>
+</tr>
+<tr>
+<td>adb -P <port> start-server</td>
+<td>指定 adb server 网络端口，默认 5037</td>
+</tr>
+<tr>
+<td>adb shell settings put global adb_enabled 0</td>
+<td>关闭 USB 调试模式</td>
+</tr>
+<tr>
+<td>adb shell wm size|density|overscan <value></td>
+<td>修改屏幕属性值</td>
+</tr>
+<tr>
+<td>adb shell wm size|density|overscan reset</td>
+<td>恢复屏幕属性</td>
+</tr>
+<tr>
+<td>adb shell screencap -p /sdcard/sc.png</td>
+<td>截图</td>
+</tr>
+<tr>
+<td>adb shell screenrecord /sdcard/filename.mp4</td>
+<td>录屏，保存为 mp4 格式Ctrl + C停止，默认与最长180秒</td>
+</tr>
+</tbody></table>
+<p><strong>adb 应用操作命令</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>命令</strong></th>
+<th><strong>用途</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>adb install /path/appname</td>
+<td>安装应用</td>
+</tr>
+<tr>
+<td>-r</td>
+<td>允许覆盖安装</td>
+</tr>
+<tr>
+<td>-d</td>
+<td>允许降级覆盖安装</td>
+</tr>
+<tr>
+<td>-g</td>
+<td>授予所有运行时权限</td>
+</tr>
+<tr>
+<td>-s</td>
+<td>将应用安装到 sdcard</td>
+</tr>
+<tr>
+<td>-t</td>
+<td>允许测试包，允许安装AndroidManifest.xml里application指定android:testOnly=”true”的应用</td>
+</tr>
+<tr>
+<td>-H</td>
+<td>Name of adb server host (default: localhost)</td>
+</tr>
+<tr>
+<td>-P</td>
+<td>Port of adb server (default: 5037)</td>
+</tr>
+<tr>
+<td>adb uninstall com.abc.abc</td>
+<td>卸载应用</td>
+</tr>
+<tr>
+<td>adb push /sourcepath/filename /destinationpath/filename</td>
+<td>从 pc 端拷贝一个文件到终端</td>
+</tr>
+<tr>
+<td>adb pull /sourcepath/filename /destinationpath/filename</td>
+<td>从终端拷贝一个文件到 pc 端</td>
+</tr>
+<tr>
+<td>adb shell setprop KEY VALUE</td>
+<td>设置 key 的 property 值 value</td>
+</tr>
+<tr>
+<td>adb shell getprop KEY</td>
+<td>获取该 key 的 property 值</td>
+</tr>
+</tbody></table>
+<p><strong>adb 启动 apk 命令</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>命令</strong></th>
+<th><strong>用途</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>adb shell am start -a android.intent.action.VIEW -d</td>
+<td>发送广播消息</td>
+</tr>
+<tr>
+<td>am start -n {包名(package)}/{包名}.{活动activity名称}</td>
+<td>启动某一个 app 的 activity</td>
+</tr>
+<tr>
+<td>adb shell am start -n android/com.android.internal.app.RecommendActivity</td>
+<td>拉起应用的 Activity</td>
+</tr>
+<tr>
+<td>adb shell am start -n com.kugou.android/.app.splash.SplashActivity</td>
+<td>同上</td>
+</tr>
+<tr>
+<td>adb shell am startservice -n com.android.clearservice/com.util.job.StartService</td>
+<td>启动服务</td>
+</tr>
+<tr>
+<td>adb shell am broadcast [options] <INTENT></td>
+<td>发送 <INTENT> 指定的广播</td>
+</tr>
+<tr>
+<td>adb shell am force-stop com.qk.android.cloudsync</td>
+<td>关闭应用</td>
+</tr>
+<tr>
+<td>adb shell am start -a android.intent.action.VIEW “snssdk1128://detail?id=6637880297297808653&amp;gd_label=click_schema_xy10”</td>
+<td>拉起抖音的deeplink</td>
+</tr>
+</tbody></table>
+<p><strong>adb shell dumpsys（查看 DUMP OF SERVICE）</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>命令</strong></th>
+<th><strong>用途</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>adb shell dumpsys window</td>
+<td>查看Window的信息</td>
+</tr>
+<tr>
+<td>adb shell dumpsys window displays</td>
+<td>显示屏参数</td>
+</tr>
+<tr>
+<td>adb shell dumpsys window | findstr mFocusedApp</td>
+<td>获取当前窗口打开的 app 信息</td>
+</tr>
+<tr>
+<td>adb shell dumpsys activity activities</td>
+<td>显示活动栈信息，activities 堆栈信息</td>
+</tr>
+<tr>
+<td>adb shell dumpsys package <packagename></td>
+<td>获取应用详细信息</td>
+</tr>
+<tr>
+<td>adb shell dumpsys package com.android.webview</td>
+<td>获取系统 webview 信息</td>
+</tr>
+<tr>
+<td>adb shell dumpsys meminfo com.tencent.mm</td>
+<td>获取指定包名内存使用情况</td>
+</tr>
+<tr>
+<td>adb shell dumpsys cpuinfo</td>
+<td>查看CPU相关信息</td>
+</tr>
+<tr>
+<td>adb shell dumpsys battery</td>
+<td>查看电池使用信息</td>
+</tr>
+<tr>
+<td>adb shell dumpsys battery -h</td>
+<td>-h 查看这个service的帮助信息</td>
+</tr>
+<tr>
+<td>adb shell dumpsys notification</td>
+<td></td>
+</tr>
+<tr>
+<td>adb shell dumpsys wallpaper</td>
+<td></td>
+</tr>
+<tr>
+<td>adb shell dumpsys activity services [<packagename>]</td>
+<td>查看与某包名相关的 Services</td>
+</tr>
+</tbody></table>
+<p><strong>adb 查看应用包信息命令</strong></p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>adb shell pm list packages</td>
+<td>查看当前连接设备或者虚拟机的所有包</td>
+</tr>
+<tr>
+<td>adb shell pm list packages -d</td>
+<td>只输出禁用的包</td>
+</tr>
+<tr>
+<td>adb shell pm list packages -e</td>
+<td>只输出启用的包</td>
+</tr>
+<tr>
+<td>adb shell pm list packages -s</td>
+<td>只输出系统的包</td>
+</tr>
+<tr>
+<td>adb shell pm list packages -i</td>
+<td>只输出包和安装信息（安装来源）</td>
+</tr>
+<tr>
+<td>adb shell pm list packages -u</td>
+<td>只输出包和未安装包信息（安装来源</td>
+</tr>
+<tr>
+<td>adb shell pm list packages -f</td>
+<td>输出包和包相关联的文件</td>
+</tr>
+<tr>
+<td>adb shell pm list packages -3</td>
+<td>输出所有第三方包</td>
+</tr>
+<tr>
+<td>adb shell pm list packages -[option] “sina”</td>
+<td>按照要求搜索包</td>
+</tr>
+<tr>
+<td>adb shell pm clear <packagename></td>
+<td>清除应用数据与缓存</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p><strong>adb 刷机相关命令</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>命令</strong></th>
+<th><strong>用途</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>adb reboot recovery</td>
+<td>从 Recovery 重启到 Android</td>
+</tr>
+<tr>
+<td>adb reboot bootloader</td>
+<td>重启到 Fastboot 模式</td>
+</tr>
+<tr>
+<td>adb sideload &lt;path-to-update.zip&gt;</td>
+<td>通过 adb 上传和更新系统</td>
+</tr>
+</tbody></table>
+<p><strong>aapt</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>命令</strong></th>
+<th><strong>用途</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>aapt dump badging /apks/abc.apk</td>
+<td>获取 apk 所有信息</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/03/Android-adb-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" data-id="ckaywfof30003ac9b2sjaeh9p" data-title="Android_adb_常用命令" class="article-share-link">分享</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/adb/" rel="tag">adb</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" rel="tag">常用命令</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/07/03/Android-%E6%89%8B%E6%9C%BA%E5%91%BD%E4%BB%A4/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          Android 获取手机信息命令
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/05/20/Android-adb-%E7%9A%84%E4%BD%BF%E7%94%A8/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">Android-adb-的使用</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/API/" rel="tag">API</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HttpRunner/" rel="tag">HttpRunner</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HttpRunnerManager/" rel="tag">HttpRunnerManager</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jmeter/" rel="tag">Jmeter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Locust/" rel="tag">Locust</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Monkey/" rel="tag">Monkey</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/adb/" rel="tag">adb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%93%E9%A1%B9%E6%B5%8B%E8%AF%95/" rel="tag">专项测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95/" rel="tag">压力测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B/" rel="tag">发布流程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%91%BD%E4%BB%A4/" rel="tag">命令</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%95/" rel="tag">安全测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%B5%8B%E8%AF%95%E6%B5%81%E7%A8%8B/" rel="tag">客户端测试流程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" rel="tag">常用命令</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%93%E5%8C%85/" rel="tag">抓包</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8E%A5%E5%8F%A3%E5%B9%B3%E5%8F%B0/" rel="tag">接口平台</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/" rel="tag">接口测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/" rel="tag">测试工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%8B%E8%AF%95%E6%B5%81%E7%A8%8B/" rel="tag">测试流程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B/" rel="tag">测试用例</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%8B%E8%AF%95%E7%AD%96%E7%95%A5/" rel="tag">测试策略</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/" rel="tag">第三方库</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/API/" style="font-size: 10px;">API</a> <a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/HttpRunner/" style="font-size: 10px;">HttpRunner</a> <a href="/tags/HttpRunnerManager/" style="font-size: 10px;">HttpRunnerManager</a> <a href="/tags/Jmeter/" style="font-size: 10px;">Jmeter</a> <a href="/tags/Locust/" style="font-size: 10px;">Locust</a> <a href="/tags/Monkey/" style="font-size: 10px;">Monkey</a> <a href="/tags/Python/" style="font-size: 13.33px;">Python</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/adb/" style="font-size: 13.33px;">adb</a> <a href="/tags/%E4%B8%93%E9%A1%B9%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">专项测试</a> <a href="/tags/%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95/" style="font-size: 16.67px;">压力测试</a> <a href="/tags/%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B/" style="font-size: 10px;">发布流程</a> <a href="/tags/%E5%91%BD%E4%BB%A4/" style="font-size: 16.67px;">命令</a> <a href="/tags/%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">安全测试</a> <a href="/tags/%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%B5%8B%E8%AF%95%E6%B5%81%E7%A8%8B/" style="font-size: 10px;">客户端测试流程</a> <a href="/tags/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" style="font-size: 10px;">常用命令</a> <a href="/tags/%E6%8A%93%E5%8C%85/" style="font-size: 10px;">抓包</a> <a href="/tags/%E6%8E%A5%E5%8F%A3%E5%B9%B3%E5%8F%B0/" style="font-size: 10px;">接口平台</a> <a href="/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">接口测试</a> <a href="/tags/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">测试工具</a> <a href="/tags/%E6%B5%8B%E8%AF%95%E6%B5%81%E7%A8%8B/" style="font-size: 13.33px;">测试流程</a> <a href="/tags/%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B/" style="font-size: 10px;">测试用例</a> <a href="/tags/%E6%B5%8B%E8%AF%95%E7%AD%96%E7%95%A5/" style="font-size: 13.33px;">测试策略</a> <a href="/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/" style="font-size: 10px;">第三方库</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">九月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/04/03/tcpdump-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7%E6%8A%93%E5%8C%85/">tcpdump 命令行工具抓包</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/03/%E5%B8%B8%E7%94%A8%E8%BE%85%E5%8A%A9%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/">常用辅助测试工具“</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/25/Locust-%E4%BB%BB%E6%84%8F%E9%9D%9Ehttp%E5%8D%8F%E8%AE%AE%E7%9A%84%E6%8E%A5%E5%8F%A3%E5%8E%8B%E6%B5%8B%E5%AE%9E%E7%8E%B0/">Locust 任意非http协议的接口压测实现</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/03/Python-%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/">Python编码规范</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/25/Locust-%E5%88%86%E5%B8%83%E5%BC%8F%E5%8E%8B%E6%B5%8B/">Locust 分布式压测</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 TH·tester<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

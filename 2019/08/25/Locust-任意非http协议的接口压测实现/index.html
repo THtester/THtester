@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Locust 任意非http协议的接口压测实现 | TH·tester</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Locust 任意非 http 协议的接口压测实现Locust 只内置了 http client，一般的 http 接口 Locust 能够实现直接压测，不过其他协议接口如 socket、websocket、grpc 等只能通过自定义 client 方法进行扩展。 如果已经写好了接口功能测试代码，又想集成到 Locust 实现压测怎么办，以下以 socket 为实例，展示 Locust 如何扩展任">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Locust 任意非http协议的接口压测实现">
+<meta property="og:url" content="http://yoursite.com/2019/08/25/Locust-%E4%BB%BB%E6%84%8F%E9%9D%9Ehttp%E5%8D%8F%E8%AE%AE%E7%9A%84%E6%8E%A5%E5%8F%A3%E5%8E%8B%E6%B5%8B%E5%AE%9E%E7%8E%B0/index.html">
+<meta property="og:site_name" content="TH·tester">
+<meta property="og:description" content="Locust 任意非 http 协议的接口压测实现Locust 只内置了 http client，一般的 http 接口 Locust 能够实现直接压测，不过其他协议接口如 socket、websocket、grpc 等只能通过自定义 client 方法进行扩展。 如果已经写好了接口功能测试代码，又想集成到 Locust 实现压测怎么办，以下以 socket 为实例，展示 Locust 如何扩展任">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-08-25T12:48:27.000Z">
+<meta property="article:modified_time" content="2020-06-03T04:49:55.215Z">
+<meta property="article:author" content="TH·tester">
+<meta property="article:tag" content="测试，软件测试，python，自动化">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="TH·tester" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">TH·tester</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">90后，软件测试，女又力力成为一名🐮🍺的测试传奇，嘻嘻嘻&lt;(￣︶￣)↗[GO!]</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Locust-任意非http协议的接口压测实现" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2019/08/25/Locust-%E4%BB%BB%E6%84%8F%E9%9D%9Ehttp%E5%8D%8F%E8%AE%AE%E7%9A%84%E6%8E%A5%E5%8F%A3%E5%8E%8B%E6%B5%8B%E5%AE%9E%E7%8E%B0/" class="article-date">
+  <time class="dt-published" datetime="2019-08-25T12:48:27.000Z" itemprop="datePublished">2019-08-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Locust 任意非http协议的接口压测实现
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h5 id="Locust-任意非-http-协议的接口压测实现"><a href="#Locust-任意非-http-协议的接口压测实现" class="headerlink" title="Locust 任意非 http 协议的接口压测实现"></a>Locust 任意非 http 协议的接口压测实现</h5><p>Locust 只内置了 http client，一般的 http 接口 Locust 能够实现直接压测，不过其他协议接口如 socket、websocket、grpc 等只能通过自定义 client 方法进行扩展。</p>
+<p>如果已经写好了接口功能测试代码，又想集成到 Locust 实现压测怎么办，以下以 socket 为实例，展示 Locust 如何扩展任意协议接口压测。</p>
+<p>tcp_server.py 被压测 socket 服务代码：<a id="more"></a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#coding:utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> socket <span class="keyword">import</span> socket, AF_INET, SOCK_STREAM</span><br><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"> </span><br><span class="line">buffsize = <span class="number">2048</span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">tcplink</span><span class="params">(sock, addr)</span>:</span></span><br><span class="line">    sock.send(bytes(<span class="string">'Welcome!'</span>, encoding=<span class="string">'utf-8'</span>))</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            data = sock.recv(buffsize).decode()</span><br><span class="line">            <span class="keyword">if</span> data == <span class="string">'exit'</span> <span class="keyword">or</span> <span class="keyword">not</span> data:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            sock.send(bytes((<span class="string">'Hello, &#123;&#125;!'</span>.format(data)), encoding=<span class="string">'utf-8'</span>))</span><br><span class="line">        <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">            print(str(e))</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    sock.close()</span><br><span class="line">    <span class="keyword">print</span> (<span class="string">'Connection from %s:%s closed.'</span> % addr)</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    host = <span class="string">'127.0.0.1'</span></span><br><span class="line">    port = <span class="number">12345</span></span><br><span class="line"> </span><br><span class="line">    ADDR = (host, port)</span><br><span class="line"> </span><br><span class="line">    sk = socket(AF_INET, SOCK_STREAM)</span><br><span class="line">    sk.bind(ADDR)</span><br><span class="line">    sk.listen(<span class="number">5</span>)</span><br><span class="line"> </span><br><span class="line">    print(<span class="string">'Wait for connection ...'</span>)</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        sock, addr = sk.accept()</span><br><span class="line">        <span class="keyword">print</span> (<span class="string">'Accept new connection from %s:%s...'</span> % addr)</span><br><span class="line">        t = threading.Thread(target=tcplink, args=(sock, addr))</span><br><span class="line">        t.start()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__==<span class="string">"__main__"</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+
+
+<p>tcp_client.py 测试 socket 功能代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#coding:utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Tcp_client</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            self._socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)</span><br><span class="line">            self._socket.connect((<span class="string">'127.0.0.1'</span>, <span class="number">12345</span>))</span><br><span class="line">        <span class="keyword">except</span> socket.error <span class="keyword">as</span> msg:</span><br><span class="line">            print(msg)</span><br><span class="line">            sys.exit(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">send</span><span class="params">(self, data)</span>:</span></span><br><span class="line">        self._socket.sendall(bytes(data, encoding=<span class="string">'utf-8'</span>))</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">recv</span><span class="params">(self)</span>:</span></span><br><span class="line">        res = self._socket.recv(<span class="number">1024</span>)</span><br><span class="line">        ret = res.decode()</span><br><span class="line">        <span class="keyword">return</span> ret</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    ins = Tcp_client()</span><br><span class="line">    ret = ins.recv()</span><br><span class="line">    print(ret)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        inpt = input(<span class="string">'Please(q\退出):\n&gt;&gt;&gt;'</span>)</span><br><span class="line">        ins.send(inpt)</span><br><span class="line">        <span class="keyword">if</span> inpt == <span class="string">'q'</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        ret = ins.recv()</span><br><span class="line">        print(ret)</span><br></pre></td></tr></table></figure>
+
+
+
+<p>base_globalvar.py 公共模块，用于实现全局变量：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#coding:utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Singleton</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__new__</span><span class="params">(cls, *args, **kwargs)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> hasattr(cls, <span class="string">'_instance'</span>):</span><br><span class="line">            cls._instance = super(Singleton, cls).__new__(cls, *args, **kwargs)</span><br><span class="line">        <span class="keyword">return</span> cls._instance</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Globalvar</span><span class="params">(Singleton)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.global_dict=&#123;&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">set_value</span><span class="params">(self, name, value)</span>:</span></span><br><span class="line">        self.global_dict[name] = value</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_value</span><span class="params">(self, name, default_value=None)</span>:</span></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            <span class="keyword">return</span> self.global_dict[name]</span><br><span class="line">        <span class="keyword">except</span> KeyError:</span><br><span class="line">            <span class="keyword">return</span> default_value</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">update_add_value</span><span class="params">(self, name, value, key=None)</span>:</span></span><br><span class="line">        update_obj = self.get_value(name)</span><br><span class="line">        <span class="keyword">if</span> update_obj != <span class="literal">None</span>: </span><br><span class="line">            <span class="keyword">if</span> isinstance(update_obj, list):</span><br><span class="line">                update_obj.append(value)</span><br><span class="line">                self.set_value(name, update_obj)</span><br><span class="line">            <span class="keyword">elif</span> isinstance(update_obj, dict):</span><br><span class="line">                <span class="keyword">if</span> key:</span><br><span class="line">                    update_obj[key] = value</span><br><span class="line">                    self.set_value(name, update_obj)</span><br><span class="line">            <span class="keyword">elif</span> isinstance(update_obj, int):</span><br><span class="line">                <span class="keyword">if</span> key==<span class="string">'add'</span>:</span><br><span class="line">                    update_obj += value</span><br><span class="line">                <span class="keyword">elif</span> key == <span class="string">'sub'</span>:</span><br><span class="line">                    update_obj -= value</span><br><span class="line">                self.set_value(name, update_obj)</span><br><span class="line">        <span class="keyword">return</span> update_obj</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">exist_key_value_not_none</span><span class="params">(self, key_name, in_dict)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> key_name <span class="keyword">in</span> in_dict.keys():</span><br><span class="line">            <span class="keyword">if</span> in_dict[key_name] != <span class="literal">None</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>load_client.py 压测脚本，集成 socket （可以是任意协议）功能测试代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#coding: utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> locust <span class="keyword">import</span> Locust, TaskSet, events, task, between</span><br><span class="line"><span class="keyword">import</span> base_globalvar</span><br><span class="line"><span class="keyword">import</span> tcp_client</span><br><span class="line"></span><br><span class="line">this_g_obj = base_globalvar.Globalvar()</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ProtocolClient</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, protocol_obj=None)</span>:</span></span><br><span class="line">        self.__connected = <span class="literal">False</span></span><br><span class="line">        <span class="keyword">if</span> protocol_obj:</span><br><span class="line">            self._protocol = protocol_obj</span><br><span class="line">            self.__connected = <span class="literal">True</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            protocol_obj_list = this_g_obj.get_value(<span class="string">'protocol_objs'</span>)</span><br><span class="line">            protocol_obj_len = this_g_obj.get_value(<span class="string">'protocol_nums'</span>)</span><br><span class="line">            run_times_now = this_g_obj.get_value(<span class="string">'run_times'</span>)</span><br><span class="line">            <span class="keyword">if</span> run_times_now &gt; protocol_obj_len:</span><br><span class="line">                run_inst_index = run_times_now % protocol_obj_len</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                run_inst_index = run_times_now</span><br><span class="line">            </span><br><span class="line">            s_int = run_inst_index - <span class="number">1</span></span><br><span class="line">            self._protocol = protocol_obj_list[s_int][<span class="number">0</span>]</span><br><span class="line">            self.__connected = <span class="literal">True</span></span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__getattr__</span><span class="params">(self, name)</span>:</span></span><br><span class="line">        protocol_this = self._protocol</span><br><span class="line"> </span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span><span class="params">(*args, **kwargs)</span>:</span></span><br><span class="line">            start_time = time.time()</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> self.__connected:</span><br><span class="line">                total_time = int((time.time() - start_time) * <span class="number">1000</span>)</span><br><span class="line">                events.request_failure.fire(request_type=<span class="string">'connect'</span>, </span><br><span class="line">                                            name=name, </span><br><span class="line">                                            response_time=total_time, </span><br><span class="line">                                            response_length=<span class="number">0</span>,</span><br><span class="line">                                            exception=<span class="string">'Connect fail'</span>)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">try</span>:</span><br><span class="line">                    run_times_now = this_g_obj.get_value(<span class="string">'run_times'</span>)</span><br><span class="line">                    skt.send(str(run_times_now))</span><br><span class="line">                    data = protocol_this.recv()</span><br><span class="line">                <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">                    total_time = int((time.time() - start_time) * <span class="number">1000</span>)</span><br><span class="line">                    events.request_failure.fire(request_type=<span class="string">'recv'</span>, </span><br><span class="line">                                                name=name, </span><br><span class="line">                                                response_time=total_time, </span><br><span class="line">                                                response_length=<span class="number">0</span>, </span><br><span class="line">                                                exception=e)</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    total_time = int((time.time() - start_time) * <span class="number">1000</span>)</span><br><span class="line">                    <span class="keyword">if</span> data == <span class="literal">None</span>:</span><br><span class="line">                        events.request_failure.fire(request_type=<span class="string">'recv'</span>,</span><br><span class="line">                                                    name=name, </span><br><span class="line">                                                    response_time=total_time,</span><br><span class="line">                                                    response_length=<span class="number">0</span>, </span><br><span class="line">                                                    exception=<span class="string">'None data recv'</span>)</span><br><span class="line">                    <span class="keyword">elif</span> <span class="string">"Hello"</span> <span class="keyword">in</span> data:</span><br><span class="line">                        events.request_success.fire(request_type=<span class="string">'recv'</span>, </span><br><span class="line">                                                    name=name, </span><br><span class="line">                                                    response_time=total_time, </span><br><span class="line">                                                    response_length=len(data))</span><br><span class="line">                    <span class="keyword">elif</span> <span class="string">'__len__'</span> <span class="keyword">in</span> dir(data) <span class="keyword">and</span> len(data) == <span class="number">0</span>:</span><br><span class="line">                        events.request_failure.fire(request_type=<span class="string">'recv'</span>, </span><br><span class="line">                                                    name=name, </span><br><span class="line">                                                    response_time=total_time, </span><br><span class="line">                                                    response_length=<span class="number">0</span>, </span><br><span class="line">                                                    exception=<span class="string">'recv len 0'</span>)</span><br><span class="line">                    <span class="keyword">else</span>:</span><br><span class="line">                        events.request_failure.fire(request_type=<span class="string">'recv'</span>, </span><br><span class="line">                                                    name=name, </span><br><span class="line">                                                    response_time=total_time, </span><br><span class="line">                                                    response_length=<span class="number">0</span>, </span><br><span class="line">                                                    exception=<span class="string">'wrong data: &#123;&#125;'</span>.format(data))</span><br><span class="line">        <span class="keyword">return</span> wrapper</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ProtocolLocust</span><span class="params">(Locust)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, *args, **kwargs)</span>:</span></span><br><span class="line">        super(ProtocolLocust, self).__init__(*args, **kwargs)</span><br><span class="line">        protocol_obj = <span class="literal">None</span></span><br><span class="line">        <span class="keyword">if</span> kwargs:</span><br><span class="line">            <span class="keyword">if</span> base_globalvar.exist_key_value_not_none(<span class="string">'protocol_obj'</span>, kwargs):</span><br><span class="line">                protocol_obj = kwargs[<span class="string">'protocol_obj'</span>]</span><br><span class="line">        self.client = ProtocolClient(protocol_obj=protocol_obj)</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ProtocolUser</span><span class="params">(ProtocolLocust)</span>:</span></span><br><span class="line">    wait_time = between(<span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">    </span><br><span class="line">    this_g_obj.set_value(<span class="string">'protocol_objs'</span>, [])</span><br><span class="line">    <span class="comment"># 如先登录帐号，再压测帐号间发消息，可以在此批量登录帐号，保持长连接，protocol 对象保存到全局变量 key:protocol_obj</span></span><br><span class="line">    <span class="comment"># 本示例简化为：先创建5个 protocol对象，压测时分别使用5个 protocol对象，超出取模复用, 实际应用时用线程批量创建</span></span><br><span class="line">    inst_num = <span class="number">5</span></span><br><span class="line">    this_g_obj.set_value(<span class="string">'protocol_nums'</span>, inst_num)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(inst_num):</span><br><span class="line">        sk = tcp_client.Tcp_client()</span><br><span class="line">        ret = sk.recv()</span><br><span class="line">        protocol_ins_id = (sk, i)</span><br><span class="line">        this_g_obj.update_add_value(<span class="string">'protocol_objs'</span>, protocol_ins_id)</span><br><span class="line"></span><br><span class="line">    this_g_obj.set_value(<span class="string">'run_times'</span>, <span class="number">0</span>)</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">task_set</span><span class="params">(TaskSet)</span>:</span></span><br><span class="line"><span class="meta">        @task(1)</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">connect</span><span class="params">(self)</span>:</span></span><br><span class="line">            this_g_obj.update_add_value(<span class="string">'run_times'</span>, <span class="number">1</span>, key=<span class="string">'add'</span>)</span><br><span class="line">            self.client.send_message()</span><br></pre></td></tr></table></figure>
+
+
+
+<p>run_locust.py 运行 Locust：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#coding:utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line">load_test_file = <span class="string">'./load_client.py'</span></span><br><span class="line">file_path = os.path.abspath(load_test_file)</span><br><span class="line">commandline = <span class="string">'&#123;0&#125; -f &#123;1&#125; -P &#123;2&#125; --web-host 0.0.0.0'</span>.format(<span class="string">'locust'</span>, </span><br><span class="line">                                                            file_path, </span><br><span class="line">                                                            <span class="number">8080</span>)</span><br><span class="line">os.popen(commandline).readlines()</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/08/25/Locust-%E4%BB%BB%E6%84%8F%E9%9D%9Ehttp%E5%8D%8F%E8%AE%AE%E7%9A%84%E6%8E%A5%E5%8F%A3%E5%8E%8B%E6%B5%8B%E5%AE%9E%E7%8E%B0/" data-id="ckaywfofm000fac9b4mn733uv" data-title="Locust 任意非http协议的接口压测实现" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/09/03/%E5%B8%B8%E7%94%A8%E8%BE%85%E5%8A%A9%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          常用辅助测试工具“
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/07/03/Python-%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">Python编码规范</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/API/" rel="tag">API</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HttpRunner/" rel="tag">HttpRunner</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HttpRunnerManager/" rel="tag">HttpRunnerManager</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jmeter/" rel="tag">Jmeter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Locust/" rel="tag">Locust</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Monkey/" rel="tag">Monkey</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/adb/" rel="tag">adb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%93%E9%A1%B9%E6%B5%8B%E8%AF%95/" rel="tag">专项测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95/" rel="tag">压力测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B/" rel="tag">发布流程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%91%BD%E4%BB%A4/" rel="tag">命令</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%95/" rel="tag">安全测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%B5%8B%E8%AF%95%E6%B5%81%E7%A8%8B/" rel="tag">客户端测试流程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" rel="tag">常用命令</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%93%E5%8C%85/" rel="tag">抓包</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8E%A5%E5%8F%A3%E5%B9%B3%E5%8F%B0/" rel="tag">接口平台</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/" rel="tag">接口测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/" rel="tag">测试工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%8B%E8%AF%95%E6%B5%81%E7%A8%8B/" rel="tag">测试流程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B/" rel="tag">测试用例</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%8B%E8%AF%95%E7%AD%96%E7%95%A5/" rel="tag">测试策略</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/" rel="tag">第三方库</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/API/" style="font-size: 10px;">API</a> <a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/HttpRunner/" style="font-size: 10px;">HttpRunner</a> <a href="/tags/HttpRunnerManager/" style="font-size: 10px;">HttpRunnerManager</a> <a href="/tags/Jmeter/" style="font-size: 10px;">Jmeter</a> <a href="/tags/Locust/" style="font-size: 10px;">Locust</a> <a href="/tags/Monkey/" style="font-size: 10px;">Monkey</a> <a href="/tags/Python/" style="font-size: 13.33px;">Python</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/adb/" style="font-size: 13.33px;">adb</a> <a href="/tags/%E4%B8%93%E9%A1%B9%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">专项测试</a> <a href="/tags/%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95/" style="font-size: 16.67px;">压力测试</a> <a href="/tags/%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B/" style="font-size: 10px;">发布流程</a> <a href="/tags/%E5%91%BD%E4%BB%A4/" style="font-size: 16.67px;">命令</a> <a href="/tags/%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">安全测试</a> <a href="/tags/%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%B5%8B%E8%AF%95%E6%B5%81%E7%A8%8B/" style="font-size: 10px;">客户端测试流程</a> <a href="/tags/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" style="font-size: 10px;">常用命令</a> <a href="/tags/%E6%8A%93%E5%8C%85/" style="font-size: 10px;">抓包</a> <a href="/tags/%E6%8E%A5%E5%8F%A3%E5%B9%B3%E5%8F%B0/" style="font-size: 10px;">接口平台</a> <a href="/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">接口测试</a> <a href="/tags/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">测试工具</a> <a href="/tags/%E6%B5%8B%E8%AF%95%E6%B5%81%E7%A8%8B/" style="font-size: 13.33px;">测试流程</a> <a href="/tags/%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B/" style="font-size: 10px;">测试用例</a> <a href="/tags/%E6%B5%8B%E8%AF%95%E7%AD%96%E7%95%A5/" style="font-size: 13.33px;">测试策略</a> <a href="/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/" style="font-size: 10px;">第三方库</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">九月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/04/03/tcpdump-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7%E6%8A%93%E5%8C%85/">tcpdump 命令行工具抓包</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/03/%E5%B8%B8%E7%94%A8%E8%BE%85%E5%8A%A9%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/">常用辅助测试工具“</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/25/Locust-%E4%BB%BB%E6%84%8F%E9%9D%9Ehttp%E5%8D%8F%E8%AE%AE%E7%9A%84%E6%8E%A5%E5%8F%A3%E5%8E%8B%E6%B5%8B%E5%AE%9E%E7%8E%B0/">Locust 任意非http协议的接口压测实现</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/03/Python-%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/">Python编码规范</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/25/Locust-%E5%88%86%E5%B8%83%E5%BC%8F%E5%8E%8B%E6%B5%8B/">Locust 分布式压测</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 TH·tester<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

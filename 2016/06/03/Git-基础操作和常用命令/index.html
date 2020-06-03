@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Git 基础操作和常用命令 | TH·tester</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Git 基础操作一、Git 简介 Linus在1991年创建了开源的Linux，到了2002年，Linux系统已经发展了十年了，代码库之大让Linus很难继续通过手工方式管理了，Linus花了两周时间自己用C写了一个分布式版本控制系统，这就是Git 二、创建版本仓库 1234$ mkdir mygit$ cd mygitmygit$ pwd&#x2F;Users&#x2F;admin&#x2F;mygit  通过git ini">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git 基础操作和常用命令">
+<meta property="og:url" content="http://yoursite.com/2016/06/03/Git-%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C%E5%92%8C%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/index.html">
+<meta property="og:site_name" content="TH·tester">
+<meta property="og:description" content="Git 基础操作一、Git 简介 Linus在1991年创建了开源的Linux，到了2002年，Linux系统已经发展了十年了，代码库之大让Linus很难继续通过手工方式管理了，Linus花了两周时间自己用C写了一个分布式版本控制系统，这就是Git 二、创建版本仓库 1234$ mkdir mygit$ cd mygitmygit$ pwd&#x2F;Users&#x2F;admin&#x2F;mygit  通过git ini">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="e:%5Chexo%5CTHtester%5Csource_posts%5CGit-%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C%E5%92%8C%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%5Cgit.png">
+<meta property="article:published_time" content="2016-06-03T04:04:44.000Z">
+<meta property="article:modified_time" content="2020-06-03T04:11:02.376Z">
+<meta property="article:author" content="TH·tester">
+<meta property="article:tag" content="命令">
+<meta property="article:tag" content="Git">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="e:%5Chexo%5CTHtester%5Csource_posts%5CGit-%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C%E5%92%8C%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%5Cgit.png">
+  
+    <link rel="alternate" href="/atom.xml" title="TH·tester" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">TH·tester</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">90后，软件测试，女又力力成为一名🐮🍺的测试传奇，嘻嘻嘻&lt;(￣︶￣)↗[GO!]</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Git-基础操作和常用命令" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2016/06/03/Git-%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C%E5%92%8C%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="article-date">
+  <time class="dt-published" datetime="2016-06-03T04:04:44.000Z" itemprop="datePublished">2016-06-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Git 基础操作和常用命令
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="Git-基础操作"><a href="#Git-基础操作" class="headerlink" title="Git 基础操作"></a>Git 基础操作</h3><p><strong>一、Git 简介</strong></p>
+<p>Linus在1991年创建了开源的Linux，到了2002年，Linux系统已经发展了十年了，代码库之大让Linus很难继续通过手工方式管理了，Linus花了两周时间自己用C写了一个分布式版本控制系统，这就是Git</p>
+<p><strong>二、创建版本仓库</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir mygit</span><br><span class="line">$ <span class="built_in">cd</span> mygit</span><br><span class="line">mygit$ <span class="built_in">pwd</span></span><br><span class="line">/Users/admin/mygit</span><br></pre></td></tr></table></figure>
+
+<p>通过git init命令把这个目录变成Git可以管理的仓库：<a id="more"></a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mygit$ git init</span><br><span class="line">Initialized empty Git repository <span class="keyword">in</span> /Users/admin/mygit/.git/</span><br></pre></td></tr></table></figure>
+
+<p>目录下多了一个.git的目录，这个目录是Git来跟踪管理版本库的，没事千万不要手动修改这个目录里面的文件，不然改乱了，就把Git仓库给破坏了。</p>
+<p>所有的版本控制系统，其实只能跟踪文本文件的改动，比如TXT文件，网页，所有的程序代码等等，Git也不例外。如果要真正使用版本控制系统，就要以纯文本方式编写文件。</p>
+<p><strong>三、添加一个文件</strong></p>
+<p>第一步，用命令git add告诉Git，把文件添加到仓库：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mygit<span class="variable">$touch</span> read.txt</span><br><span class="line">mygit<span class="variable">$git</span> add read.txt</span><br></pre></td></tr></table></figure>
+
+<p>第二步，用命令git commit告诉Git，把文件提交到仓库：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mygit<span class="variable">$git</span> commit -m <span class="string">"wrote a txt file"</span></span><br><span class="line">[master 6899a3b] wrote a txt file</span><br><span class="line"> 1 file changed, 1 insertion(+)</span><br><span class="line"> create mode 100644 read.txt</span><br></pre></td></tr></table></figure>
+
+<p>add支持一次添加多个文件（git add -A）后，commit支持一次提交所有add的文件。</p>
+<p>git add命令实际上git</p>
+<p><strong>四、查看结果</strong></p>
+<p>git status命令可以让我们时刻掌握仓库当前的状态，如无变化或有修改</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">mygit<span class="variable">$vim</span> read.txt</span><br><span class="line">mygit<span class="variable">$git</span> status</span><br><span class="line">On branch master</span><br><span class="line">Changes not staged <span class="keyword">for</span> commit:</span><br><span class="line">  (use <span class="string">"git add &lt;file&gt;..."</span> to update what will be committed)</span><br><span class="line">  (use <span class="string">"git checkout -- &lt;file&gt;..."</span> to discard changes <span class="keyword">in</span> working directory)</span><br><span class="line"></span><br><span class="line">	modified:   read.txt</span><br><span class="line"></span><br><span class="line">no changes added to commit (use <span class="string">"git add"</span> and/or <span class="string">"git commit -a"</span>)</span><br><span class="line"></span><br><span class="line">mygit<span class="variable">$git</span> diff read.txt</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>五、提交修改</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">mygit<span class="variable">$git</span> add read.txt</span><br><span class="line">mygit<span class="variable">$git</span> status</span><br><span class="line">On branch master</span><br><span class="line">Changes to be committed:</span><br><span class="line">  (use <span class="string">"git reset HEAD &lt;file&gt;..."</span> to unstage)</span><br><span class="line"></span><br><span class="line">	modified:   read.txt</span><br><span class="line">	</span><br><span class="line">mygit<span class="variable">$git</span> commit -m <span class="string">"modify read"</span></span><br><span class="line">[master 871ed58] modify <span class="built_in">read</span></span><br><span class="line"> 1 file changed, 1 insertion(+), 1 deletion(-)</span><br><span class="line"> </span><br><span class="line">mygit<span class="variable">$git</span> status</span><br><span class="line">On branch master</span><br><span class="line">nothing to commit, working tree clean</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>六、查看提交日志</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mygit<span class="variable">$git</span> <span class="built_in">log</span></span><br></pre></td></tr></table></figure>
+
+<p>显示从最近到最远的提交日志，如果退出查看日志，敲键盘 q</p>
+<p>查看简单日志信息：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mygit<span class="variable">$git</span> <span class="built_in">log</span> --pretty=oneline</span><br><span class="line">871ed587ca6af9f45f07e88dfdb34db3f088c008 (HEAD -&gt; master) modify <span class="built_in">read</span></span><br><span class="line">6899a3b7be98eb0ca635bc768bacb7601cacbcb2 wrote a txt file</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>七、回退到上一个版本</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mygit<span class="variable">$git</span> reset --hard HEAD</span><br><span class="line">HEAD is now at 6899a3b wrote a txt file</span><br></pre></td></tr></table></figure>
+
+<p>如果此时后悔了，不想回退：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mygit<span class="variable">$git</span> reset --hard 871ed587c</span><br><span class="line">HEAD is now at 871ed58 modify <span class="built_in">read</span></span><br><span class="line"></span><br><span class="line">mygit<span class="variable">$git</span> <span class="built_in">log</span></span><br></pre></td></tr></table></figure>
+
+<p>当你回退版本的时候，Git仅仅是把HEAD从指向版本的commit id</p>
+<p><strong>八、查看每次的命令记录</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mygit<span class="variable">$git</span> reflog</span><br><span class="line">871ed58 (HEAD -&gt; master) HEAD@&#123;0&#125;: reset: moving to 871ed587c</span><br><span class="line">6899a3b HEAD@&#123;1&#125;: reset: moving to HEAD^</span><br><span class="line">871ed58 (HEAD -&gt; master) HEAD@&#123;2&#125;: commit: modify <span class="built_in">read</span></span><br><span class="line">6899a3b HEAD@&#123;3&#125;: commit: wrote a txt file</span><br></pre></td></tr></table></figure>
+
+<p>第一次修改 -&gt; git add -&gt; 第二次修改 -&gt; git commit</p>
+<p>实际只提交第一次的修改，如果要一起提交，如下：</p>
+<p>第一次修改 -&gt; git add -&gt; 第二次修改 -&gt; git add -&gt; git commit</p>
+<p><strong>九、丢弃工作区的修改</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mygit<span class="variable">$git</span> checkout -- read.txt</span><br></pre></td></tr></table></figure>
+
+<p>意思就是，把readme.txt文件在工作区的修改全部撤销，这里有两种情况：</p>
+<p>一种是read.txt自修改后还没有被放到暂存区，现在，撤销修改就回到和版本库一模一样的状态；</p>
+<p>一种是read.txt已经添加到暂存区后，又作了修改，现在，撤销修改就回到最近添加到暂存区后的状态。</p>
+<p>总之，就是让这个文件回到最近一次 git add 或 git commit 时的状态。</p>
+<p><strong>十、丢弃缓存区的修改</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mygit<span class="variable">$git</span> reset HEAD read.txt</span><br></pre></td></tr></table></figure>
+
+<p>还没推送远程版本库，提交本地版本库的修改：git reset HEAD <file></p>
+<p><strong>十一、从仓库中删除文件</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">mygit<span class="variable">$rm</span> read.txt</span><br><span class="line">mygit<span class="variable">$git</span> status</span><br><span class="line">On branch master</span><br><span class="line">Changes not staged <span class="keyword">for</span> commit:</span><br><span class="line">  (use <span class="string">"git add/rm &lt;file&gt;..."</span> to update what will be committed)</span><br><span class="line">  (use <span class="string">"git checkout -- &lt;file&gt;..."</span> to discard changes <span class="keyword">in</span> working directory)</span><br><span class="line"></span><br><span class="line">	deleted:    read.txt</span><br><span class="line"></span><br><span class="line">no changes added to commit (use <span class="string">"git add"</span> and/or <span class="string">"git commit -a"</span>)</span><br><span class="line"></span><br><span class="line">mygit<span class="variable">$git</span> rm read.txt</span><br><span class="line">rm <span class="string">'read.txt'</span></span><br><span class="line"></span><br><span class="line">mygit<span class="variable">$git</span> commit -m <span class="string">"remove read.txt"</span></span><br><span class="line">[master c937ac8] remove read.txt</span><br><span class="line"> 1 file changed, 1 deletion(-)</span><br><span class="line"> delete mode 100644 read.txt</span><br></pre></td></tr></table></figure>
+
+
+
+<p>因为误删想要还原：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mygit<span class="variable">$git</span> checkout -- read.txt</span><br><span class="line">error: pathspec <span class="string">'read.txt'</span> did not match any file(s) known to git.</span><br><span class="line"></span><br><span class="line">mygit<span class="variable">$git</span> reset --hard 871ed58</span><br><span class="line">HEAD is now at 871ed58 modify <span class="built_in">read</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>十二、创建远程仓库（略）</strong></p>
+<p><a href="https://github.com/" target="_blank" rel="noopener">https://github.com</a></p>
+<p>从远程仓库克隆一个本地仓库：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mygit<span class="variable">$mkdir</span> remot</span><br><span class="line">mygit<span class="variable">$cd</span> remot</span><br><span class="line"></span><br><span class="line">remot<span class="variable">$git</span> <span class="built_in">clone</span> git@github.com:aihuman/hiapi.git</span><br><span class="line">Cloning into <span class="string">'hiapi'</span>...</span><br><span class="line">remote: Enumerating objects: 3, <span class="keyword">done</span>.</span><br><span class="line">remote: Counting objects: 100% (3/3), <span class="keyword">done</span>.</span><br><span class="line">remote: Total 3 (delta 0), reused 3 (delta 0), pack-reused 0</span><br><span class="line">Receiving objects: 100% (3/3), <span class="keyword">done</span>.</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>十三、分支管理</strong></p>
+<p>每次提交，Git都把它们串成一条时间线，这条时间线就是一个分支。截止到目前，只有一条时间线，在Git里，这个分支叫主分支，即master分支。HEAD严格来说不是指向提交，而是指向master，master才是指向提交的，所以，HEAD指向的就是当前分支。</p>
+<p>一开始的时候，master分支是一条线，Git用master指向最新的提交，再用HEAD指向master，就能确定当前分支，以及当前分支的提交点</p>
+<p>当我们创建新的分支，例如dev时，Git新建了一个指针叫dev，指向master相同的提交，再把HEAD指向dev，就表示当前分支在dev上</p>
+<p>Git创建一个分支很快，因为除了增加一个dev指针，改改HEAD的指向，工作区的文件都没有任何变化！</p>
+<p>假如我们在dev上的工作完成了，就可以把dev合并到master上。</p>
+<p>Git怎么合并呢？最简单的方法，就是直接把master指向dev的当前提交，就完成了合并</p>
+<p>合并完分支后，甚至可以删除dev分支。删除dev分支就是把dev指针给删掉，删掉后，我们就剩下了一条master分支</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mygit<span class="variable">$git</span> checkout -b dev</span><br><span class="line">Switched to a new branch <span class="string">'dev'</span></span><br></pre></td></tr></table></figure>
+
+<p>相当于：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mygit<span class="variable">$git</span> branch dev</span><br><span class="line">mygit<span class="variable">$git</span> checkout dev</span><br><span class="line">Already on <span class="string">'dev'</span></span><br></pre></td></tr></table></figure>
+
+<p>修改dev分支，合并到master分支，最后删除dev分支</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">mygit<span class="variable">$git</span> branch</span><br><span class="line">* dev</span><br><span class="line">  master</span><br><span class="line">mygit<span class="variable">$vim</span> read.txt</span><br><span class="line">mygit<span class="variable">$git</span> add read.txt</span><br><span class="line">mygit<span class="variable">$git</span> commit -m <span class="string">"dev 001"</span></span><br><span class="line">[dev 9c22b66] dev 001</span><br><span class="line"> 1 file changed, 1 insertion(+), 1 deletion(-)</span><br><span class="line"> </span><br><span class="line">mygit<span class="variable">$git</span> checkout master</span><br><span class="line">Switched to branch <span class="string">'master'</span></span><br><span class="line"></span><br><span class="line">mygit<span class="variable">$cat</span> read.txt</span><br><span class="line">222111</span><br><span class="line">mygit<span class="variable">$git</span> checkout dev</span><br><span class="line">Switched to branch <span class="string">'dev'</span></span><br><span class="line"></span><br><span class="line">mygit<span class="variable">$cat</span> read.txt</span><br><span class="line">333222111</span><br><span class="line"></span><br><span class="line">mygit<span class="variable">$git</span> merge dev</span><br><span class="line">Already up to date.</span><br><span class="line"></span><br><span class="line">mygit<span class="variable">$git</span> checkout master</span><br><span class="line">Switched to branch <span class="string">'master'</span></span><br><span class="line"></span><br><span class="line">mygit<span class="variable">$cat</span> read.txt </span><br><span class="line">222111</span><br><span class="line"></span><br><span class="line">mygit<span class="variable">$git</span> merge dev</span><br><span class="line">Updating 871ed58..9c22b66</span><br><span class="line">Fast-forward</span><br><span class="line"> read.txt | 2 +-</span><br><span class="line"> 1 file changed, 1 insertion(+), 1 deletion(-)</span><br><span class="line"> </span><br><span class="line">mygit<span class="variable">$cat</span> read.txt</span><br><span class="line">333222111</span><br><span class="line">mygit<span class="variable">$git</span> branch -d dev</span><br><span class="line">Deleted branch dev (was 9c22b66).</span><br><span class="line">mygit<span class="variable">$git</span> branch</span><br><span class="line">* master</span><br></pre></td></tr></table></figure>
+
+<p>远程提交新的分支和远程拉取新分支</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git push --<span class="built_in">set</span>-upstream origin dev1</span><br><span class="line">git checkout -b dev1 origin/dev1</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>十四、解决冲突</strong></p>
+<p>在同一个节点后，master分支和dev分支都有新的提交，Git无法执行“快速合并”，只能试图把各自的修改合并起来，但这种合并就可能会有冲突。</p>
+<p>当Git无法自动合并分支时，就必须首先解决冲突。解决冲突后，再提交，合并完成。</p>
+<p>解决冲突就是把Git合并失败的文件手动编辑为我们希望的内容，再提交。</p>
+<p>用git log –graph命令可以看到分支合并图。</p>
+<p>通常，合并分支时，如果可能，Git会用Fast forward模式，但这种模式下，删除分支后，会丢掉分支信息。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mygit<span class="variable">$git</span> merge --no-ff -m <span class="string">"merge with no-ff"</span> dev</span><br></pre></td></tr></table></figure>
+
+<p>合并分支时，加上–no-ff参数就可以用普通模式合并，合并后的历史有分支，能看出来曾经做过合并，而fast forward合并就看不出来曾经做过合并。</p>
+<p>你和你的小伙伴们每个人都在dev分支上干活，每个人都有自己的分支，时不时地往dev分支上合并就可以了。</p>
+<p>所以，团队合作的分支看起来就像这样：</p>
+<p><img src="E:%5Chexo%5CTHtester%5Csource_posts%5CGit-%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C%E5%92%8C%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%5Cgit.png" alt=""></p>
+<p><strong>十五、临时修复bug</strong></p>
+<p>工作只进行到一半，还没法提交，预计完成还需1天时间。但是，必须在两个小时内修复该bug，怎么办？</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mygit<span class="variable">$git</span> stash</span><br><span class="line">mygit<span class="variable">$git</span> checkout master</span><br><span class="line">mygit<span class="variable">$git</span> checkout -b bug-101</span><br></pre></td></tr></table></figure>
+
+<p>修复完成后，切换到master分支，并完成合并，最后删除bug-101分支</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mygit<span class="variable">$git</span> stash list</span><br><span class="line">mygit<span class="variable">$git</span> checkout dev</span><br><span class="line">mygit<span class="variable">$git</span> status</span><br></pre></td></tr></table></figure>
+
+
+
+<p>一是用git stash apply恢复，但是恢复后，stash内容并不删除，你需要用git stash drop来删除；</p>
+<p>另一种方式是用git stash pop，恢复的同时把stash内容也删了：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mygit<span class="variable">$git</span> stash pop</span><br><span class="line">mygit<span class="variable">$git</span> stash list</span><br></pre></td></tr></table></figure>
+
+
+
+<p>多次stash，恢复的时候，先用git stash list查看，然后恢复指定的stash，用命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mygit<span class="variable">$git</span> stash apply stash@&#123;0&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>十六、远程库</strong></p>
+<p>要查看远程库的信息，用git remote：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mygit<span class="variable">$git</span> remote</span><br><span class="line">mygit<span class="variable">$git</span> remote -v</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>十七、推送分支</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mygit<span class="variable">$git</span> push origin master</span><br><span class="line">mygit<span class="variable">$git</span> push origin dev</span><br></pre></td></tr></table></figure>
+
+<p>并不是一定要把本地分支往远程推送，那么，哪些分支需要推送，哪些不需要呢？</p>
+<p>master分支 是主分支，因此要时刻与远程同步；</p>
+<p>dev分支 是开发分支，团队所有成员都需要在上面工作，所以也需要与远程同步；</p>
+<p>bug分支 只用于在本地修复bug，就没必要推到远程了，除非老板要看看你每周到底修复了几个bug；</p>
+<p>feature分支 是否推到远程，取决于你是否和你的小伙伴合作在上面开发。</p>
+<p><strong>十八、多人合作</strong></p>
+<p>如果A同学在dev分支修改并提交一些内容，B同学对相同文件也做了修改，试图推送失败，应先用git pull把最新的提交从origin/dev抓下来，然后，在本地合并，解决冲突，再推送</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mygit<span class="variable">$git</span> branch --<span class="built_in">set</span>-upstream-to=origin/dev dev</span><br><span class="line">mygit<span class="variable">$git</span> pull</span><br></pre></td></tr></table></figure>
+
+
+
+<p>多人协作的工作模式通常是这样：</p>
+<p>1、首先，可以试图用git push origin <branch-name>推送自己的修改；</p>
+<p>2、如果推送失败，则因为远程分支比你的本地更新，需要先用git pull试图合并；</p>
+<p>3、如果合并有冲突，则解决冲突，并在本地提交；</p>
+<p>4、没有冲突或者解决掉冲突后，再用git push origin <branch-name>推送就能成功！</p>
+<p>如果git pull提示no tracking information，则说明本地分支和远程分支的链接关系没有创建，用命令git branch –set-upstream-to <branch-name> origin/<branch-name>。</p>
+<p>这就是多人协作的工作模式，一旦熟悉了，就非常简单。</p>
+<p><strong>十九、标签管理</strong></p>
+<p>Git有commit，为什么还要引入tag？</p>
+<p>“请把上周一的那个版本打包发布，commit号是6a5819e…”</p>
+<p>“一串乱七八糟的数字不好找！”</p>
+<p>如果换一个办法：</p>
+<p>“请把上周一的那个版本打包发布，版本号是v1.2”</p>
+<p>“好的，按照tag v1.2查找commit就行！”</p>
+<p>所以，tag就是一个让人容易记住的有意义的名字，它跟某个commit绑在一起。</p>
+<p>标签操作</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">mygit<span class="variable">$git</span> branch</span><br><span class="line">mygit<span class="variable">$git</span> checkout master</span><br><span class="line">mygit<span class="variable">$git</span> tag v1.0</span><br><span class="line"></span><br><span class="line">mygit<span class="variable">$git</span> tag</span><br><span class="line">v1.0</span><br><span class="line">mygit<span class="variable">$git</span> tag v0.9 f52c633</span><br><span class="line">mygit<span class="variable">$git</span> tag</span><br><span class="line">v0.9</span><br><span class="line">v1.0</span><br><span class="line"></span><br><span class="line">mygit<span class="variable">$git</span> show v0.9</span><br><span class="line">mygit<span class="variable">$git</span> push origin v1.0</span><br><span class="line">mygit<span class="variable">$git</span> push origin --tags</span><br><span class="line">mygit<span class="variable">$git</span> tag -d v0.9</span><br><span class="line">mygit<span class="variable">$git</span> push origin :refs/tags/v0.9 <span class="comment">#删除远程标签</span></span><br><span class="line">mygit<span class="variable">$git</span> tag -d v0.1</span><br></pre></td></tr></table></figure>
+
+<p>更新远程 tag</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git tag -l | xargs git tag -d</span><br><span class="line">git fetch --tags</span><br><span class="line">git tag</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/06/03/Git-%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C%E5%92%8C%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" data-id="ckaywfofh000aac9b4g9t2bsd" data-title="Git 基础操作和常用命令" class="article-share-link">分享</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%91%BD%E4%BB%A4/" rel="tag">命令</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/01/01/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          接口测试
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/04/18/Android-App-%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95-Monkeyrunner/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">Android App 压力测试 Monkeyrunner</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/API/" rel="tag">API</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HttpRunner/" rel="tag">HttpRunner</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HttpRunnerManager/" rel="tag">HttpRunnerManager</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jmeter/" rel="tag">Jmeter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Locust/" rel="tag">Locust</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Monkey/" rel="tag">Monkey</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/adb/" rel="tag">adb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%93%E9%A1%B9%E6%B5%8B%E8%AF%95/" rel="tag">专项测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95/" rel="tag">压力测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B/" rel="tag">发布流程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%91%BD%E4%BB%A4/" rel="tag">命令</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%95/" rel="tag">安全测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%B5%8B%E8%AF%95%E6%B5%81%E7%A8%8B/" rel="tag">客户端测试流程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" rel="tag">常用命令</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%93%E5%8C%85/" rel="tag">抓包</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8E%A5%E5%8F%A3%E5%B9%B3%E5%8F%B0/" rel="tag">接口平台</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/" rel="tag">接口测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/" rel="tag">测试工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%8B%E8%AF%95%E6%B5%81%E7%A8%8B/" rel="tag">测试流程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B/" rel="tag">测试用例</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%8B%E8%AF%95%E7%AD%96%E7%95%A5/" rel="tag">测试策略</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/" rel="tag">第三方库</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/API/" style="font-size: 10px;">API</a> <a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/HttpRunner/" style="font-size: 10px;">HttpRunner</a> <a href="/tags/HttpRunnerManager/" style="font-size: 10px;">HttpRunnerManager</a> <a href="/tags/Jmeter/" style="font-size: 10px;">Jmeter</a> <a href="/tags/Locust/" style="font-size: 10px;">Locust</a> <a href="/tags/Monkey/" style="font-size: 10px;">Monkey</a> <a href="/tags/Python/" style="font-size: 13.33px;">Python</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/adb/" style="font-size: 13.33px;">adb</a> <a href="/tags/%E4%B8%93%E9%A1%B9%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">专项测试</a> <a href="/tags/%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95/" style="font-size: 16.67px;">压力测试</a> <a href="/tags/%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B/" style="font-size: 10px;">发布流程</a> <a href="/tags/%E5%91%BD%E4%BB%A4/" style="font-size: 16.67px;">命令</a> <a href="/tags/%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">安全测试</a> <a href="/tags/%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%B5%8B%E8%AF%95%E6%B5%81%E7%A8%8B/" style="font-size: 10px;">客户端测试流程</a> <a href="/tags/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" style="font-size: 10px;">常用命令</a> <a href="/tags/%E6%8A%93%E5%8C%85/" style="font-size: 10px;">抓包</a> <a href="/tags/%E6%8E%A5%E5%8F%A3%E5%B9%B3%E5%8F%B0/" style="font-size: 10px;">接口平台</a> <a href="/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">接口测试</a> <a href="/tags/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">测试工具</a> <a href="/tags/%E6%B5%8B%E8%AF%95%E6%B5%81%E7%A8%8B/" style="font-size: 13.33px;">测试流程</a> <a href="/tags/%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B/" style="font-size: 10px;">测试用例</a> <a href="/tags/%E6%B5%8B%E8%AF%95%E7%AD%96%E7%95%A5/" style="font-size: 13.33px;">测试策略</a> <a href="/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/" style="font-size: 10px;">第三方库</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">九月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/04/03/tcpdump-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7%E6%8A%93%E5%8C%85/">tcpdump 命令行工具抓包</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/03/%E5%B8%B8%E7%94%A8%E8%BE%85%E5%8A%A9%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/">常用辅助测试工具“</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/25/Locust-%E4%BB%BB%E6%84%8F%E9%9D%9Ehttp%E5%8D%8F%E8%AE%AE%E7%9A%84%E6%8E%A5%E5%8F%A3%E5%8E%8B%E6%B5%8B%E5%AE%9E%E7%8E%B0/">Locust 任意非http协议的接口压测实现</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/03/Python-%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/">Python编码规范</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/25/Locust-%E5%88%86%E5%B8%83%E5%BC%8F%E5%8E%8B%E6%B5%8B/">Locust 分布式压测</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 TH·tester<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

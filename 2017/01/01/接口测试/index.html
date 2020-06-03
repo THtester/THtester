@@ -4,17 +4,20 @@
   <meta charset="utf-8">
   
   
-  <title>归档 | TH·tester</title>
+  <title>接口测试 | TH·tester</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="python | Android | iOS | Web | API">
-<meta property="og:type" content="website">
-<meta property="og:title" content="TH·tester">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="接口测试一、业务层面1.字段是否必填(必填 or 非必填)，要同时检查 request 和 response 2.字段是否必要，从业务角度出发考虑，该字段是否需要保留 二、类型检查关注常用类型：int, decimal, String, bool, 枚举，日期等 (通过系统结构和数据流了解数据的流向、转换、落地） 1.类型使用是否正确（尤其是http接口）：  使用 String 还是原始类型 2">
+<meta property="og:type" content="article">
+<meta property="og:title" content="接口测试">
+<meta property="og:url" content="http://yoursite.com/2017/01/01/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/index.html">
 <meta property="og:site_name" content="TH·tester">
-<meta property="og:description" content="python | Android | iOS | Web | API">
+<meta property="og:description" content="接口测试一、业务层面1.字段是否必填(必填 or 非必填)，要同时检查 request 和 response 2.字段是否必要，从业务角度出发考虑，该字段是否需要保留 二、类型检查关注常用类型：int, decimal, String, bool, 枚举，日期等 (通过系统结构和数据流了解数据的流向、转换、落地） 1.类型使用是否正确（尤其是http接口）：  使用 String 还是原始类型 2">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2017-01-01T04:35:18.000Z">
+<meta property="article:modified_time" content="2020-06-03T04:36:27.385Z">
 <meta property="article:author" content="TH·tester">
-<meta property="article:tag" content="测试，软件测试，python，自动化">
+<meta property="article:tag" content="接口测试">
+<meta property="article:tag" content="API">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="TH·tester" type="application/atom+xml">
@@ -75,236 +78,154 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/04/03/tcpdump-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7%E6%8A%93%E5%8C%85/" class="archive-article-date">
-  <time class="dt-published" datetime="2020-04-03T04:50:42.000Z" itemprop="datePublished">4月 3</time>
+        <section id="main"><article id="post-接口测试" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2017/01/01/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/" class="article-date">
+  <time class="dt-published" datetime="2017-01-01T04:35:18.000Z" itemprop="datePublished">2017-01-01</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/03/tcpdump-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7%E6%8A%93%E5%8C%85/">tcpdump 命令行工具抓包</a>
+    <h1 class="p-name article-title" itemprop="headline name">
+      接口测试
     </h1>
   
 
-    </header>
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="接口测试"><a href="#接口测试" class="headerlink" title="接口测试"></a>接口测试</h3><h4 id="一、业务层面"><a href="#一、业务层面" class="headerlink" title="一、业务层面"></a>一、业务层面</h4><p>1.字段是否必填(必填 or 非必填)，要同时检查 request 和 response</p>
+<p>2.字段是否必要，从业务角度出发考虑，该字段是否需要保留</p>
+<h4 id="二、类型检查"><a href="#二、类型检查" class="headerlink" title="二、类型检查"></a>二、类型检查</h4><p>关注常用类型：int, decimal, String, bool, 枚举，日期等</p>
+<p>(通过系统结构和数据流了解数据的流向、转换、落地）</p>
+<p>1.类型使用是否正确（尤其是http接口）：</p>
+<p> 使用 String 还是原始类型</p>
+<p>2.枚举的常量选项是否正确<a id="more"></a></p>
+<p> 对于外部用户调用的接口，肯定不需要内部传递的枚举值</p>
+<p>3.是否有校验</p>
+<p> 类型是否符合要求</p>
+<p> 精度是否符合要求</p>
+<p> 必填项是否有值</p>
+<p> 入参为 null 或者 空 字符串，有无检验</p>
+<p> 对于枚举值的传入，是否属于枚举列表中的值</p>
+<p>4.长度</p>
+<p> 是否够长，超过部分是否截断还是发出警告</p>
+<p>5.精度</p>
+<p> 是否符合要求，通常精度为2位小数</p>
+<p> 传输过程是否可以保证精度不会改变</p>
+<p> 得到的数据是否会自行调整精度(截断或者四舍五入不可取，应该直接校验传入的精度)</p>
+<p>6.时间</p>
+<p> 应该是使用日期(2015-11-12), 还是时间(2015-11-12 14:00:00), 还是时间戳(1449849600000)</p>
+<p> 时间边界 0001年 – 9999年</p>
+<p> 单位：【秒】还是【毫秒】</p>
+<p> 时区：服务器的日期是否会根据请求者的时区进行转换；或者在 request 中和 response 中直接带上时区信息</p>
+<h4 id="三、数据流转"><a href="#三、数据流转" class="headerlink" title="三、数据流转"></a>三、数据流转</h4><p> 数据在系统间的流转会发生一系列的变化，例如转换、封装、组装、丢弃等情况</p>
+<p> 现在列出一些场景：</p>
+<p> 数据库的读写（bean 与 数据库字段间的转换）</p>
+<p> MVC中 数据的转换（网络数据 与 Model ，M与V ，M与data层，bean之间的转换 等）</p>
+<p> 后端与前端的兼容（adroid/ios/功能机/pc）</p>
+<p> 不同类型接口的转换：dubbo/http/https/socket</p>
+<h4 id="四、性能"><a href="#四、性能" class="headerlink" title="四、性能"></a>四、性能</h4><p> [数据库]</p>
+<p> 数据库数据库读写，读写哪个比重更大？根据实际情况做读写分离，分表。</p>
+<p> 主从同步对于数据一致性的影响，写入后，多久可以使从库的数据同步完毕，从而拿到完整的数据</p>
+<p> 是否采用本地存储，比如历史浏览存储在用户手机端，不与服务器进行交互</p>
+<p> [多线程]</p>
+<p> 代码是否需要多线程处理数据（考虑数据的完整性、一致性）</p>
+<p> 线程池根据业务量进行设置，确保系统稳定，同时能够在单位时间内处理尽可能多的业务</p>
+<p> [Tomcat]</p>
+<p> JVM 栈内存根据业务进行调优</p>
+<p> 更高版本的 tomcat(e.g. tomcat7.0)支持监听内存泄漏</p>
+<p> 调整 maxThreads 加大并发请求数量</p>
+<p> 配置压缩，减少传输数据</p>
+<p> [Nginx]</p>
+<p> Nginx是否对静态文件做了缓存处理</p>
+<p> 是否开启了压缩</p>
+<p> 多台机器提供服务时，可根据机器性能，将量大的请求打到性能更好的机器上</p>
+<p> 需要支持上传文件时，需要根据业务实际，判断是否需要修改 ng 上传文件 size 的配置</p>
+<p> 检查接口是否需要 ng 对 cookie 进行处理（检查或者过滤）</p>
+<p> [缓存]</p>
+<p> 机器内存的使用</p>
+<p> memcache，redis的使用</p>
+<p> [CPU]</p>
+<p> 判断是否是高 CPU 的服务，判断是否需要升级硬件配置</p>
+<p> sar -u 2 180 &gt; sarcpu.txt</p>
+<p> [内存]</p>
+<p> sar -r 2 180 &gt; sarmem.txt</p>
+<p> [I/O]</p>
+<p> sar -b 2 180 &gt;sario.txt</p>
+<p> [网络]</p>
+<p> sar 1 0 -n DEV -e 11:00:00 &gt; sarnewtork.txt</p>
+<p> [http]</p>
+<p> 是否开启了压缩</p>
+<h4 id="五、协议"><a href="#五、协议" class="headerlink" title="五、协议"></a>五、协议</h4><p>根据业务和性能选择合适的版本</p>
+<p>1.协议的选择</p>
+<p> TCP or UDP</p>
+<p> http or RPC(Dubbo)</p>
+<p> 直连 or qmq</p>
+<p> 拉取 or 推送</p>
+<p>2.协议的使用</p>
+<p> 长连接还是短连接</p>
+<p> 同步 or 异步</p>
+<p> 实时 or 延迟</p>
+<h4 id="六、通用测试"><a href="#六、通用测试" class="headerlink" title="六、通用测试"></a>六、通用测试</h4><p> [安全测试]</p>
+<p> SQL 注入，进程锁/线程锁 并发</p>
+<p> [功能测试]</p>
+<p> 接口业务功能</p>
+<p> [日志]</p>
+<p> cat <em>log_file_name</em> | grep -i -E “exception” -nr</p>
+<h4 id="七、监控"><a href="#七、监控" class="headerlink" title="七、监控"></a>七、监控</h4><p>对接口的调用情况进行监控</p>
+<p>1.接口类型</p>
+<p> 调用外部接口的监控</p>
+<p> 对外提供的接口的监控</p>
+<p>2.监控指标</p>
+<p> 调用的总次数、成功次数、失败次数、qps 等</p>
+<p> 成功率、失败率</p>
+<p> 各种指标的汇总，对比等</p>
+<p>3.根据业务加阈值和报警</p>
+<p> 失败的阈值，要考虑严重性以及是否有参数错误导致失败的情况，进行阈值设置</p>
+<p> 成功的阈值，要考虑量起来后对系统的压力</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/01/01/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/" data-id="ckaywfog1000yac9b0xf12sfs" data-title="接口测试" class="article-share-link">分享</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/API/" rel="tag">API</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/" rel="tag">接口测试</a></li></ul>
+
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/03/03/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%B5%8B%E8%AF%95%E7%AD%96%E7%95%A5%E8%AE%BE%E8%AE%A1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          服务端测试策略设计
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/06/03/Git-%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C%E5%92%8C%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">Git 基础操作和常用命令</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/09/03/%E5%B8%B8%E7%94%A8%E8%BE%85%E5%8A%A9%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/" class="archive-article-date">
-  <time class="dt-published" datetime="2019-09-03T15:17:47.000Z" itemprop="datePublished">9月 3</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/03/%E5%B8%B8%E7%94%A8%E8%BE%85%E5%8A%A9%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/">常用辅助测试工具“</a>
-    </h1>
-  
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/08/25/Locust-%E4%BB%BB%E6%84%8F%E9%9D%9Ehttp%E5%8D%8F%E8%AE%AE%E7%9A%84%E6%8E%A5%E5%8F%A3%E5%8E%8B%E6%B5%8B%E5%AE%9E%E7%8E%B0/" class="archive-article-date">
-  <time class="dt-published" datetime="2019-08-25T12:48:27.000Z" itemprop="datePublished">8月 25</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/25/Locust-%E4%BB%BB%E6%84%8F%E9%9D%9Ehttp%E5%8D%8F%E8%AE%AE%E7%9A%84%E6%8E%A5%E5%8F%A3%E5%8E%8B%E6%B5%8B%E5%AE%9E%E7%8E%B0/">Locust 任意非http协议的接口压测实现</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/07/03/Python-%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/" class="archive-article-date">
-  <time class="dt-published" datetime="2019-07-03T03:22:02.000Z" itemprop="datePublished">7月 3</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/03/Python-%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/">Python编码规范</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/02/25/Locust-%E5%88%86%E5%B8%83%E5%BC%8F%E5%8E%8B%E6%B5%8B/" class="archive-article-date">
-  <time class="dt-published" datetime="2019-02-25T15:43:40.000Z" itemprop="datePublished">2月 25</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/02/25/Locust-%E5%88%86%E5%B8%83%E5%BC%8F%E5%8E%8B%E6%B5%8B/">Locust 分布式压测</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/01/03/Python-%E5%B8%B8%E7%94%A8%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/" class="archive-article-date">
-  <time class="dt-published" datetime="2019-01-03T14:14:30.000Z" itemprop="datePublished">1月 3</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/01/03/Python-%E5%B8%B8%E7%94%A8%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/">Python 常用第三方库</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/10/03/Android-App-%E4%B8%93%E9%A1%B9%E6%B5%8B%E8%AF%95/" class="archive-article-date">
-  <time class="dt-published" datetime="2018-10-03T04:23:00.000Z" itemprop="datePublished">10月 3</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/10/03/Android-App-%E4%B8%93%E9%A1%B9%E6%B5%8B%E8%AF%95/">Android App 专项测试</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/07/03/Centos7-%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2-HttpRunnerManager/" class="archive-article-date">
-  <time class="dt-published" datetime="2018-07-03T15:52:40.000Z" itemprop="datePublished">7月 3</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/03/Centos7-%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2-HttpRunnerManager/">Centos7 安装部署 HttpRunnerManager</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/07/03/Redis-%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C%E5%92%8C%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="archive-article-date">
-  <time class="dt-published" datetime="2018-07-03T04:09:29.000Z" itemprop="datePublished">7月 3</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/03/Redis-%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C%E5%92%8C%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">Redis 基础操作和常用命令</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/07/03/Android-%E6%89%8B%E6%9C%BA%E5%91%BD%E4%BB%A4/" class="archive-article-date">
-  <time class="dt-published" datetime="2018-07-03T03:58:43.000Z" itemprop="datePublished">7月 3</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/03/Android-%E6%89%8B%E6%9C%BA%E5%91%BD%E4%BB%A4/">Android 获取手机信息命令</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-
-  <nav id="page-nav">
-    
-    <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/2/">下一页 &raquo;</a>
-  </nav>
 
 </section>
         

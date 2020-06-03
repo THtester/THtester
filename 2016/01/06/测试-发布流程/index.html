@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>测试-发布流程 | TH·tester</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="测试前   项目 模块 说明 备注    确认jira 由产品来创建     需求评审 原则 1、纯技术需求，比如代码精简，性能优化，提高稳定性之类，可以由开发发起确认，不经过 产品2、其它所有的产品需求，都要经过产品确认，要有需求文档。紧急需求没有文档的，也必须经过产品开发测试一起确认过详细逻辑3、沟通需求需要沟通清楚细节     时间 1、提测时间2、发布时间     人员 1、特别是涉及到">
+<meta property="og:type" content="article">
+<meta property="og:title" content="测试-发布流程">
+<meta property="og:url" content="http://yoursite.com/2016/01/06/%E6%B5%8B%E8%AF%95-%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B/index.html">
+<meta property="og:site_name" content="TH·tester">
+<meta property="og:description" content="测试前   项目 模块 说明 备注    确认jira 由产品来创建     需求评审 原则 1、纯技术需求，比如代码精简，性能优化，提高稳定性之类，可以由开发发起确认，不经过 产品2、其它所有的产品需求，都要经过产品确认，要有需求文档。紧急需求没有文档的，也必须经过产品开发测试一起确认过详细逻辑3、沟通需求需要沟通清楚细节     时间 1、提测时间2、发布时间     人员 1、特别是涉及到">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2016-01-06T11:29:40.000Z">
+<meta property="article:modified_time" content="2020-06-03T03:19:29.991Z">
+<meta property="article:author" content="TH·tester">
+<meta property="article:tag" content="测试流程">
+<meta property="article:tag" content="发布流程">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="TH·tester" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">TH·tester</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">90后，软件测试，女又力力成为一名🐮🍺的测试传奇，嘻嘻嘻&lt;(￣︶￣)↗[GO!]</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-测试-发布流程" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2016/01/06/%E6%B5%8B%E8%AF%95-%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B/" class="article-date">
+  <time class="dt-published" datetime="2016-01-06T11:29:40.000Z" itemprop="datePublished">2016-01-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      测试-发布流程
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><h4 id="测试前"><a href="#测试前" class="headerlink" title="测试前"></a>测试前</h4><table>
+<thead>
+<tr>
+<th align="left">项目</th>
+<th align="left">模块</th>
+<th align="left">说明</th>
+<th align="left">备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">确认jira</td>
+<td align="left">由产品来创建</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">需求评审</td>
+<td align="left">原则</td>
+<td align="left">1、纯技术需求，比如代码精简，性能优化，提高稳定性之类，可以由开发发起确认，不经过 产品2、其它所有的产品需求，都要经过产品确认，要有需求文档。紧急需求没有文档的，也必须经过产品开发测试一起确认过详细逻辑3、沟通需求需要沟通清楚细节</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">时间</td>
+<td align="left">1、提测时间2、发布时间</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">人员</td>
+<td align="left">1、特别是涉及到多个系统/模块的项目，各个模块的产品、开发、测试负责人是谁？2、涉及到的人是否有未参与需求评审的？</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">逻辑/功能</td>
+<td align="left">1、打点2、是否有针对内部产品的避让机制（push、通知）3、是否有攻防措施（锁屏）</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">测试环境</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">用例设计</td>
+<td align="left">模块划分</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">人员划分</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">用例评审时间</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">用例评审</td>
+<td align="left">通知相关的产品/开发/测试参与</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">评审过程中，记录需要补充/确认的地方</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">评审完成后，确认/补充</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">完成后，将case同步到对应项目的jira/群里</td>
+<td align="left">@产品，后续需要产品根据这份case验收</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">非紧急最晚在提测前一天晚上完成</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">创建wiki[opt]</td>
+<td align="left">记录些什么？</td>
+<td align="left">1、服务器信息2、中间件信息3、bug过滤器</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">提测</td>
+<td align="left">产品验收</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">提测邮件</td>
+<td align="left">1、需求2、影响范围3、测试信息</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+<ol start="2">
+<li><h4 id="测试中"><a href="#测试中" class="headerlink" title="测试中"></a>测试中</h4><table>
+<thead>
+<tr>
+<th align="left">项目</th>
+<th align="left">模块</th>
+<th align="left">说明</th>
+<th align="left">备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">按阶段</td>
+<td align="left">产品验收</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">一轮测试</td>
+<td align="left">设计的case执行完</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">ui验收</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">二轮测试</td>
+<td align="left">二轮测试做什么？</td>
+<td align="left">1、补充的case 2、一轮测试中bugfix 3、探索性测试发现的问题</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">相关业务人员验收</td>
+<td align="left">对外的系统，尤其涉及到钱的，商务，财务，运营等相关同学在上线前应该自己认真验收一下</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">产品验收</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">回归测试</td>
+<td align="left">升级功能</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">[opt]内测</td>
+<td align="left">1、确认内测截止时间 2、指定问题收集人 3、问题收集整理 4、跟进问题处理解决</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">按行为</td>
+<td align="left">进度跟踪/同步</td>
+<td align="left">每日站会</td>
+<td align="left">站会结果同步</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">每日总结</td>
+<td align="left">1、下班前与项目负责人同步当日进度 2、未达到预期说明原因</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">阶段报告</td>
+<td align="left">大项目/重要项目/涉及多团队项目，测试时间大于等于3日的，每天发阶段性测试报告</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">阶段性测试报告内容？</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">需求控制</td>
+<td align="left">需求频繁变更怎么办？</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">风险预估/控制</td>
+<td align="left">什么是风险？如何发现风险？</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">bug跟踪</td>
+<td align="left">跟进流程</td>
+<td align="left">刚开始报的bug为new RESO fixed 测试验证通过 verify 测试未通过 reopened invalid 无效bugwontfix 有效bug，但是不改 duplicate 报重了，需要开发指定重复的bug worksforme 无法复现，需要测试帮忙重现bug始终无法重新怎么办：指定一个时间盒子，比如1小时，如果不断尝试始终无法复现，可以先将bug关闭 nextversion 下个版本改 later 下个版本改 概要：设置为这些状态，都需要写明原因 如何处理？ 服 verify 不服 与开发讨论，同时将问题assign给产品确认 仍然不服 问题升级，产品/开发/测试负责人assign 我不改，让别人改</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">注意事项</td>
+<td align="left">1、修改bug状态，要注明原因 特别是reopen，assgin给别人的时候 要求开发修改状态也要做备注 2、报bug要分优先级和严重级别 p优先级、 s严重级别 3、报bug前要先搜索一下关键词，看之前有没有人报过 4、报bug前要尝试简单定位，前端后端？ 5、报bug要提供足够信息 账号、 log、 抓包 设备信息：机型、 系统 非必现bug提供频率</td>
+</tr>
+<tr>
+<td align="left">按类型</td>
+<td align="left">功能</td>
+<td align="left">如何划分模块</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">接口（服务端接口）</td>
+<td align="left">业务功能测试</td>
+<td align="left">1、正常场景 正常请求配置、内容 2、异常场景 限量已满导致请求失败</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">边界分析测试</td>
+<td align="left">1、业务规则边界 余量为0时请求 2、参数边界分析 覆盖必填参数 组合可选参数 参数有、无、null 参数个数、类型 参数数值范围 参数字符长短 特殊字符</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">性能测试</td>
+<td align="left">1、响应时间 2、吞吐量 3、并发 4、资源使用率 cpu、 内存、 网络、 io</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">安全测试</td>
+<td align="left">1、信息加密 2、SQL注入</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">客户端接口</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">属性确认</td>
+<td align="left">文件对比</td>
+<td align="left">大于10kb需要开发确认</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">版本号</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">签名校验</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">稳定</td>
+<td align="left">客户端</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">服务端</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">兼容</td>
+<td align="left">客户端</td>
+<td align="left">1、android版本 6、 7、 8、 9 2、手机厂商 华为、 小米、 oppo、 vivo、 meizu、 合作方机型 3、手机型号 4、屏幕尺寸/样式 水滴屏、 全面屏、 不同的分辨率 5、新旧版本 配置、 数据、 状态 6、android/ios 互相发送内容、 互相分享内容</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">H5</td>
+<td align="left">1、pc Chrome 2、android 微信、 QQ浏览器、 UC浏览器、 系统自带浏览器、 客户端 3、ios 微信、 QQ浏览器、 UC浏览器 4、safari 老版本内核的浏览器</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">服务端</td>
+<td align="left">旧客户端 – 新服务端</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">性能</td>
+<td align="left">客户端</td>
+<td align="left">启动速度、资源占用、资源泄露</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">服务端</td>
+<td align="left">需要确认 1、log是否需要关掉？ 2、是否有调用第三方接口？第三方是否接受压测？</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">安全</td>
+<td align="left">调试信息</td>
+<td align="left">确保不会输出有意义的调试信息</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">自动化</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">其它</td>
+<td align="left">隐私协议是否经过发布法务确认</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+<ol start="3">
+<li><h4 id="待发布"><a href="#待发布" class="headerlink" title="待发布"></a>待发布</h4><table>
+<thead>
+<tr>
+<th align="left">项目</th>
+<th align="left">模块</th>
+<th align="left">说明</th>
+<th align="left">备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">发布状态确认</td>
+<td align="left">外部验收通过</td>
+<td align="left">产品、UI、财务[opt]、运营[opt]、法务</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">所有修改点都已经通过测试</td>
+<td align="left">项目负责人</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">所有相关业务/模块已经通过测试</td>
+<td align="left">项目负责人</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">自动化回归用例全部pass</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">性能测试/稳定性测试通过</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">所有bug已经修复/确认later/确认nextversion</td>
+<td align="left">项目负责人</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">若有其它团队功能，确保已经测试通过</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">三方api/产品上线/配置确认</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">自有配置上线</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">回归测试通过</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">监控情况确认</td>
+<td align="left">资源</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">业务</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">数据</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">测试报告</td>
+<td align="left">发布分支确认</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">需要制定一个新模板</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+<ol start="4">
+<li><h4 id="发布"><a href="#发布" class="headerlink" title="发布"></a>发布</h4><table>
+<thead>
+<tr>
+<th align="left">项目</th>
+<th align="left">模块</th>
+<th align="left">说明</th>
+<th align="left">备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">确认发布细节</td>
+<td align="left">有哪些业务需要发布</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">线上机器有了么？</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">发布依赖/顺序</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">数据库脚本</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">配置上线</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">广告位上线</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">发布量级</td>
+<td align="left">是否需要运维/大数据提前准备？</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">开始发布</td>
+<td align="left">确认产品，开发，测试都在跟进发布</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">如果需要其它团队配合，需要提前通知</td>
+<td align="left">如上线后进行配置</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">线上验证</td>
+<td align="left">客户端</td>
+<td align="left">1、下载确认发布无误2、升级，符合+不符合升级条件的情况分别验证</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">服务端</td>
+<td align="left">1、开发看log 2、产品、测试验证功能</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">发布结束</td>
+<td align="left">验证完毕，邮件/群周知相关人员发布情况。</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">通知产品更新官网论坛链接[opt]</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">jira项目设置状态</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">发布权限回收</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+<ol start="5">
+<li><h4 id="整理总结"><a href="#整理总结" class="headerlink" title="整理总结"></a>整理总结</h4><table>
+<thead>
+<tr>
+<th align="left">项目</th>
+<th align="left">模块</th>
+<th align="left">说明</th>
+<th align="left">备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">发布记录</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">版本备份</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">用例备份</td>
+<td align="left">对应项目的jira中</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">用例整理</td>
+<td align="left">稳定case/核心case整理到回归case</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">对应的用例是否可以整理基础用例库中？</td>
+<td align="left">基础</td>
+<td align="left">1、输入框 2、网络异常 3、移动端常见异常</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">组件/模块/功能</td>
+<td align="left">1、登录 2、升级</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">产品</td>
+<td align="left">1、push 2、广告 3、web</td>
+</tr>
+<tr>
+<td align="left">项目复盘</td>
+<td align="left">哪些做的好？</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">哪些做的不好？</td>
+<td align="left">不好的地方如何改进？</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">经验总结</td>
+<td align="left">push如何测试？</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">信息流如何测试？</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">客户端升级机制如何测试？</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">自动化需求</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+<ol start="6">
+<li><h4 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h4><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>模块</th>
+<th>说明</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>沟通</td>
+<td>重要问题及时沟通</td>
+<td>1、不要放到群里就完了 2、要@指定人 3、定个时间，没有响应的话直接电话 4、始终联系不上/推动无效，升级问题</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>降低沟通成本</td>
+<td>1、报bug时初步定位问题 2、群里报问题，把问题描述清楚</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>注意私聊</td>
+<td>1、阻塞性问题一律在大群里聊 2、临近发布前，一律在大群里聊</td>
+<td></td>
+</tr>
+<tr>
+<td>问题</td>
+<td>及时发现项目中的问题并推进解决</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/01/06/%E6%B5%8B%E8%AF%95-%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B/" data-id="ckaywfog40013ac9b1c3nbos1" data-title="测试-发布流程" class="article-share-link">分享</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B/" rel="tag">发布流程</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B5%8B%E8%AF%95%E6%B5%81%E7%A8%8B/" rel="tag">测试流程</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/04/18/Android-App-%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95-Monkeyrunner/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          Android App 压力测试 Monkeyrunner
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/01/02/Android%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83Checklist/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">Android版本发布Checklist</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/API/" rel="tag">API</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HttpRunner/" rel="tag">HttpRunner</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HttpRunnerManager/" rel="tag">HttpRunnerManager</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jmeter/" rel="tag">Jmeter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Locust/" rel="tag">Locust</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Monkey/" rel="tag">Monkey</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/adb/" rel="tag">adb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%93%E9%A1%B9%E6%B5%8B%E8%AF%95/" rel="tag">专项测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95/" rel="tag">压力测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B/" rel="tag">发布流程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%91%BD%E4%BB%A4/" rel="tag">命令</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%95/" rel="tag">安全测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%B5%8B%E8%AF%95%E6%B5%81%E7%A8%8B/" rel="tag">客户端测试流程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" rel="tag">常用命令</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%93%E5%8C%85/" rel="tag">抓包</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8E%A5%E5%8F%A3%E5%B9%B3%E5%8F%B0/" rel="tag">接口平台</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/" rel="tag">接口测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/" rel="tag">测试工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%8B%E8%AF%95%E6%B5%81%E7%A8%8B/" rel="tag">测试流程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B/" rel="tag">测试用例</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%8B%E8%AF%95%E7%AD%96%E7%95%A5/" rel="tag">测试策略</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/" rel="tag">第三方库</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/API/" style="font-size: 10px;">API</a> <a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/HttpRunner/" style="font-size: 10px;">HttpRunner</a> <a href="/tags/HttpRunnerManager/" style="font-size: 10px;">HttpRunnerManager</a> <a href="/tags/Jmeter/" style="font-size: 10px;">Jmeter</a> <a href="/tags/Locust/" style="font-size: 10px;">Locust</a> <a href="/tags/Monkey/" style="font-size: 10px;">Monkey</a> <a href="/tags/Python/" style="font-size: 13.33px;">Python</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/adb/" style="font-size: 13.33px;">adb</a> <a href="/tags/%E4%B8%93%E9%A1%B9%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">专项测试</a> <a href="/tags/%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95/" style="font-size: 16.67px;">压力测试</a> <a href="/tags/%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B/" style="font-size: 10px;">发布流程</a> <a href="/tags/%E5%91%BD%E4%BB%A4/" style="font-size: 16.67px;">命令</a> <a href="/tags/%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">安全测试</a> <a href="/tags/%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%B5%8B%E8%AF%95%E6%B5%81%E7%A8%8B/" style="font-size: 10px;">客户端测试流程</a> <a href="/tags/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" style="font-size: 10px;">常用命令</a> <a href="/tags/%E6%8A%93%E5%8C%85/" style="font-size: 10px;">抓包</a> <a href="/tags/%E6%8E%A5%E5%8F%A3%E5%B9%B3%E5%8F%B0/" style="font-size: 10px;">接口平台</a> <a href="/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">接口测试</a> <a href="/tags/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">测试工具</a> <a href="/tags/%E6%B5%8B%E8%AF%95%E6%B5%81%E7%A8%8B/" style="font-size: 13.33px;">测试流程</a> <a href="/tags/%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B/" style="font-size: 10px;">测试用例</a> <a href="/tags/%E6%B5%8B%E8%AF%95%E7%AD%96%E7%95%A5/" style="font-size: 13.33px;">测试策略</a> <a href="/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/" style="font-size: 10px;">第三方库</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">九月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/04/03/tcpdump-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7%E6%8A%93%E5%8C%85/">tcpdump 命令行工具抓包</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/03/%E5%B8%B8%E7%94%A8%E8%BE%85%E5%8A%A9%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/">常用辅助测试工具“</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/25/Locust-%E4%BB%BB%E6%84%8F%E9%9D%9Ehttp%E5%8D%8F%E8%AE%AE%E7%9A%84%E6%8E%A5%E5%8F%A3%E5%8E%8B%E6%B5%8B%E5%AE%9E%E7%8E%B0/">Locust 任意非http协议的接口压测实现</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/03/Python-%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/">Python编码规范</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/25/Locust-%E5%88%86%E5%B8%83%E5%BC%8F%E5%8E%8B%E6%B5%8B/">Locust 分布式压测</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 TH·tester<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

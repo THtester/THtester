@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Centos7 安装部署 HttpRunnerManager | TH·tester</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Centos7 安装部署 HttpRunnerManager V2.0HttpRunnerManager V2.0此项目是一个基于HttpRunner的接口自动化测试平台，同时HttpRunner 是一款面向 HTTP(S) 协议的通用测试框架 只需编写维护一份 YAML&#x2F;JSON 脚本，即可实现自动化测试、性能测试、线上监控、持续集成等多种测试任务  一、准备环境和安装包 主要：CentOS7，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Centos7 安装部署 HttpRunnerManager">
+<meta property="og:url" content="http://yoursite.com/2018/07/03/Centos7-%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2-HttpRunnerManager/index.html">
+<meta property="og:site_name" content="TH·tester">
+<meta property="og:description" content="Centos7 安装部署 HttpRunnerManager V2.0HttpRunnerManager V2.0此项目是一个基于HttpRunner的接口自动化测试平台，同时HttpRunner 是一款面向 HTTP(S) 协议的通用测试框架 只需编写维护一份 YAML&#x2F;JSON 脚本，即可实现自动化测试、性能测试、线上监控、持续集成等多种测试任务  一、准备环境和安装包 主要：CentOS7，">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-07-03T15:52:40.000Z">
+<meta property="article:modified_time" content="2020-06-03T04:55:04.373Z">
+<meta property="article:author" content="TH·tester">
+<meta property="article:tag" content="HttpRunner">
+<meta property="article:tag" content="HttpRunnerManager">
+<meta property="article:tag" content="接口平台">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="TH·tester" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">TH·tester</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">90后，软件测试，女又力力成为一名🐮🍺的测试传奇，嘻嘻嘻&lt;(￣︶￣)↗[GO!]</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Centos7-安装部署-HttpRunnerManager" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2018/07/03/Centos7-%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2-HttpRunnerManager/" class="article-date">
+  <time class="dt-published" datetime="2018-07-03T15:52:40.000Z" itemprop="datePublished">2018-07-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Centos7 安装部署 HttpRunnerManager
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h4 id="Centos7-安装部署-HttpRunnerManager-V2-0"><a href="#Centos7-安装部署-HttpRunnerManager-V2-0" class="headerlink" title="Centos7 安装部署 HttpRunnerManager V2.0"></a>Centos7 安装部署 HttpRunnerManager V2.0</h4><p>HttpRunnerManager V2.0此项目是一个基于HttpRunner的接口自动化测试平台，同时HttpRunner 是一款面向 HTTP(S) 协议的通用测试框架</p>
+<p>只需编写维护一份 YAML/JSON 脚本，即可实现自动化测试、性能测试、线上监控、持续集成等多种测试任务</p>
+<p> <strong>一、准备环境和安装包</strong></p>
+<p>主要：CentOS7，HttpRunnerManager V2.0，mysql（MariaDB），python3.7，Django2.1.2，rabbitmq-server-3.7.15<a id="more"></a></p>
+<p>系统下载地址：</p>
+<p>CentOS：<a href="https://mirrors.edge.kernel.org/centos/7.6.1810/isos/x86_64/CentOS-7-x86_64-DVD-1810.iso" target="_blank" rel="noopener">https://mirrors.edge.kernel.org/centos/7.6.1810/isos/x86_64/CentOS-7-x86_64-DVD-1810.iso</a></p>
+<p>HttpRunnerManager V2.0：<a href="https://github.com/HttpRunner/HttpRunnerManager" target="_blank" rel="noopener">https://github.com/HttpRunner/HttpRunnerManager</a></p>
+<p>mysql，python，rabbitmq （安装略）</p>
+<p>在 mysql 中新建 HttpRunner 和 HttpRunner_debug（用于DEBUG版本）数据库，charset utf8</p>
+<p><strong>二、修改项目设置</strong></p>
+<p>1、打开下载后解压的源码包，进入 HttpRunnerManager/HttpRunnerManager 文件夹下，找到 settings.py 打开修改</p>
+<p>$ vim settings.py</p>
+<p>（1）DEBUG = False</p>
+<p>（2）DATABASES 字段，填写使用的数据库信息（区分 DEBUG）</p>
+<p>（3）修改邮箱配置：EMAIL_SEND_USERNAME和EMAIL_SEND_PASSWORD（要打开 smtp 服务）</p>
+<p>（4）修改 djcelery.setup_loader() 下 rabbitmq-server 相关配置 ：BROKER_URL 和 CELERYD_MAX_TASKS_PER_CHILD = 200</p>
+<p>2、mysql 文件 mysql_config 拷贝到 /usr/local/下<br>ln -s /usr/bin/mysql/bin/mysql_config /usr/local/bin/mysql_config</p>
+<p>3、安装 python 依赖模块（也可以 pip3 install -r requirements.txt，但是提供的版本不准确）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">pip3 install --upgrade pip</span><br><span class="line">pip3 install mysqlclient</span><br><span class="line">pip3 install Django==2.1.3</span><br><span class="line">pip3 install HttpRunner==1.5.8</span><br><span class="line">pip3 install django_celery_beat==2.0.0</span><br><span class="line">pip3 install eventlet==0.22.1</span><br><span class="line">pip3 install django-celery==3.2.2</span><br><span class="line">pip3 install flower==0.9.2</span><br><span class="line">pip3 install dwebsocket==0.4.2</span><br><span class="line">pip3 install paramiko==2.4.1</span><br><span class="line">pip3 install PyYAML</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>三、运行</strong></p>
+<p>1、数据库 mysql 服务和 RabbitMQ 服务处于启动状态</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rabbitmq-server -detached</span><br></pre></td></tr></table></figure>
+
+
+
+<p>2、执行 migrate 和创建管理员</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">python3 manage.py makemigrations ApiManager</span><br><span class="line">python3 manage.py migrate</span><br><span class="line">python3 manage.py createsuperuser</span><br></pre></td></tr></table></figure>
+
+
+
+<p>3、启动服务</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup python3 manage.py runserver 0.0.0.0:9003 &gt; /dev/null &amp;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>四、登录管理</strong></p>
+<p>管理员登录页面：<a href="http://127.0.0.1:9003/admin/" target="_blank" rel="noopener">http://127.0.0.1:9003/admin/</a></p>
+<p>用户登录页面：<a href="http://127.0.0.1:9003/api/login/" target="_blank" rel="noopener">http://127.0.0.1:9003/api/login/</a></p>
+<p><strong>五、异步任务和 \</strong>dashboard****</p>
+<p>1、rabbitmq 开启 web 插件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rabbitmq-plugins <span class="built_in">enable</span> rabbitmq_management</span><br></pre></td></tr></table></figure>
+
+<p>测试访问：<a href="http://127.0.0.1:15672/" target="_blank" rel="noopener">http://127.0.0.1:15672/</a> 默认账号密码：guest guest（这个账号只允许本机访问）</p>
+<p>2、修改 templates/base.html</p>
+<p>将 <a href="http://192.168.91.45:5555/dashboard" target="_blank" rel="noopener">http://192.168.91.45:5555/dashboard</a> 改为 <a href="http://127.0.0.1:5555/dashboard" target="_blank" rel="noopener">http://127.0.0.1:5555/dashboard</a></p>
+<p>3、修改 HttpRunnerManager/settings.py</p>
+<p>BROKER_URL = ‘<a href="amqp://dev:zwc123@192.168.91.45:5672//">amqp://dev:zwc123@192.168.91.45:5672//</a>‘ if DEBUG else ‘<a href="amqp://dev:zwc123@192.168.91.45:5672//">amqp://dev:zwc123@192.168.91.45:5672//</a>‘</p>
+<p>改为</p>
+<p>BROKER_URL = ‘<a href="amqp://guest:guest@localhost:5672//">amqp://guest:guest@localhost:5672//</a>‘ if DEBUG else ‘<a href="amqp://guest:guest@localhost:5672//">amqp://guest:guest@localhost:5672//</a>‘</p>
+<p>4、启动 worker （如果选择同步执行并确保不会使用到定时任务，那么此步骤可忽略）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 manage.py celery -A HttpRunnerManager worker --loglevel=info</span><br></pre></td></tr></table></figure>
+
+<p>如果你的 tornado 版本大于 6 会提示错误：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AttributeError: module <span class="string">'tornado.web'</span> has no attribute <span class="string">'asynchronous'</span></span><br></pre></td></tr></table></figure>
+
+<p>降级安装 tornado 即可解决：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip3 uninstall tornado</span><br><span class="line">pip3 install tornado==5.1.1</span><br></pre></td></tr></table></figure>
+
+<p>如果你的 Python 版本是 3.7 会提示错误：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">File <span class="string">"/usr/local/lib/python3.7/site-packages/celery/utils/timer2.py"</span>, line 19</span><br><span class="line">    from kombu.async.timer import Entry, Timer as Schedule, to_timestamp, logger</span><br><span class="line">                   ^</span><br><span class="line">SyntaxError: invalid syntax</span><br></pre></td></tr></table></figure>
+
+<p>是因为 async 在 python3.7 已经是关键字，但是 celery 版本没有更新，在更新前我们自己修改 celery 文件中的 async 为 async_2 就可以（定义和引用全都改）：</p>
+<p>1）修改 kombu 模块</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/lib/python3.7/site-packages/kombu</span><br><span class="line">mv ./async ./async_2</span><br><span class="line">grep -nHIrE <span class="string">'\basync\b'</span> *</span><br></pre></td></tr></table></figure>
+
+<p>找到模块调用相关全部替换</p>
+<p>vim:%s/kombu.async/kombu.async_2/g</p>
+<p>改完后检查下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -nHIrE <span class="string">'\basync\b'</span> *</span><br></pre></td></tr></table></figure>
+
+<p>2）修改 celery 模块</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/lib/python3.7/site-packages/celery</span><br><span class="line">grep -nHIrE <span class="string">'\bkombu\.async\b'</span> *</span><br></pre></td></tr></table></figure>
+
+<p>找到模块调用相关全部替换</p>
+<p>vim:%s/kombu.async/kombu.async_2/g</p>
+<p>改完后检查下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -nHIrE <span class="string">'\bkombu\.async\b'</span> *</span><br></pre></td></tr></table></figure>
+
+<p>再次测试启动 worker：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 manage.py celery -A HttpRunnerManager worker --loglevel=info</span><br></pre></td></tr></table></figure>
+
+
+
+<p>5、启动定时任务监听器</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 manage.py celery -A HttpRunnerManager worker --loglevel=info</span><br></pre></td></tr></table></figure>
+
+<p>此时访问 <a href="http://127.0.0.1:5555/dashboard" target="_blank" rel="noopener">http://127.0.0.1:5555/dashboard</a> （或者httprunner 系统设置–任务监控）可打开 dashboard</p>
+<p>6、启动任务监控后台</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 manage.py celery -A HttpRunnerManager flower</span><br></pre></td></tr></table></figure>
+
+<p>此时异步执行、定时任务、任务监控模块都可以正常使用。**<br>**</p>
+<p>**<br>**</p>
+<p><strong>备注：</strong></p>
+<p>HttpRunner HttpRunnerManager 界面样式丢失问题解决办法：</p>
+<p>templates 文件夹下，修改 base.html，amazeui.min.js 的引用位置</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=<span class="string">"stylesheet"</span> href=<span class="string">"http://cdnjs.cloudflare.com/ajax/libs/amazeui/2.7.2/css/amazeui.min.css"</span>/&gt;</span><br><span class="line">&lt;!--&lt;link rel=<span class="string">"stylesheet"</span> href=<span class="string">"http://cdn.amazeui.org/amazeui/2.7.2/css/amazeui.min.css"</span>/&gt;--&gt;</span><br><span class="line">&lt;link rel=<span class="string">"stylesheet"</span> href=<span class="string">"&#123;% static 'assets/css/admin.css' %&#125;"</span>&gt;</span><br><span class="line">&lt;link rel=<span class="string">"stylesheet"</span> href=<span class="string">"&#123;% static 'assets/css/common.css' %&#125;"</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<p>另外，在DEBUG=True模式下，页面样式没问题，在DEBUG=False模式下就有问题，目前先使用的是Debug模式，后面研究下。</p>
+<p>建议调试版和正式版的源文件放在两个工程下，避免互相影响。</p>
+<p><strong>解决一些Bug：</strong></p>
+<p>1、 百度未授权使用地图API</p>
+<p>登录打开首页的时候，会弹出提示：百度未授权使用地图API，可能是因为您提供的密钥不是有效的百度LBS开放平台密钥，或此密钥未对本应用的百度地图JavaScriptAPI授权。您可以访问如下网址了解如何获取有效的密钥：<a href="http://lbsyun.baidu.com/apiconsole/key#。" target="_blank" rel="noopener">http://lbsyun.baidu.com/apiconsole/key#。</a></p>
+<p>问题原因：可能是作者的 KEY过期或者无效，因为用不到这个功能，找到对应代码直接注释掉即可：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> templates</span><br><span class="line">cat *.html | grep map.baidu.com</span><br><span class="line">grep -nHIrF <span class="string">'map.baidu.com'</span> *.html</span><br></pre></td></tr></table></figure>
+
+
+
+<p>2、首页不显示图表</p>
+<p>问题原因：百度域名下的 echarts 相关资源访问不了了</p>
+<p>解决方法：</p>
+<p>1）<a href="https://www.echartsjs.com/zh/builder.html" target="_blank" rel="noopener">https://www.echartsjs.com/zh/builder.html</a> 选中你需要的组件，然后会生成 echarts.js 并且下载到本地</p>
+<p>2）把下载下来的 echarts.js 文件，放到开发文件夹的 static/assets/js/ 目录下</p>
+<p>3）到 templates 目录查找所有相关文件，对应 js 代码，全部注释掉：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -nHIriE <span class="string">'echarts\.baidu\.com'</span> *</span><br></pre></td></tr></table></figure>
+
+<p>4）注释掉 js 代码下 替换一行代码即可：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src&#x3D;&quot;&#123;% static &#39;assets&#x2F;js&#x2F;echarts.js&#39; %&#125;&quot;&gt;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/03/Centos7-%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2-HttpRunnerManager/" data-id="ckaywfofe0008ac9b29dt5bb9" data-title="Centos7 安装部署 HttpRunnerManager" class="article-share-link">分享</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HttpRunner/" rel="tag">HttpRunner</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HttpRunnerManager/" rel="tag">HttpRunnerManager</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8E%A5%E5%8F%A3%E5%B9%B3%E5%8F%B0/" rel="tag">接口平台</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/10/03/Android-App-%E4%B8%93%E9%A1%B9%E6%B5%8B%E8%AF%95/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          Android App 专项测试
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/07/03/Redis-%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C%E5%92%8C%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">Redis 基础操作和常用命令</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/API/" rel="tag">API</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HttpRunner/" rel="tag">HttpRunner</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HttpRunnerManager/" rel="tag">HttpRunnerManager</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jmeter/" rel="tag">Jmeter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Locust/" rel="tag">Locust</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Monkey/" rel="tag">Monkey</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/adb/" rel="tag">adb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%93%E9%A1%B9%E6%B5%8B%E8%AF%95/" rel="tag">专项测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95/" rel="tag">压力测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B/" rel="tag">发布流程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%91%BD%E4%BB%A4/" rel="tag">命令</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%95/" rel="tag">安全测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%B5%8B%E8%AF%95%E6%B5%81%E7%A8%8B/" rel="tag">客户端测试流程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" rel="tag">常用命令</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%93%E5%8C%85/" rel="tag">抓包</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8E%A5%E5%8F%A3%E5%B9%B3%E5%8F%B0/" rel="tag">接口平台</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/" rel="tag">接口测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/" rel="tag">测试工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%8B%E8%AF%95%E6%B5%81%E7%A8%8B/" rel="tag">测试流程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B/" rel="tag">测试用例</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%8B%E8%AF%95%E7%AD%96%E7%95%A5/" rel="tag">测试策略</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/" rel="tag">第三方库</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/API/" style="font-size: 10px;">API</a> <a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/HttpRunner/" style="font-size: 10px;">HttpRunner</a> <a href="/tags/HttpRunnerManager/" style="font-size: 10px;">HttpRunnerManager</a> <a href="/tags/Jmeter/" style="font-size: 10px;">Jmeter</a> <a href="/tags/Locust/" style="font-size: 10px;">Locust</a> <a href="/tags/Monkey/" style="font-size: 10px;">Monkey</a> <a href="/tags/Python/" style="font-size: 13.33px;">Python</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/adb/" style="font-size: 13.33px;">adb</a> <a href="/tags/%E4%B8%93%E9%A1%B9%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">专项测试</a> <a href="/tags/%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95/" style="font-size: 16.67px;">压力测试</a> <a href="/tags/%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B/" style="font-size: 10px;">发布流程</a> <a href="/tags/%E5%91%BD%E4%BB%A4/" style="font-size: 16.67px;">命令</a> <a href="/tags/%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">安全测试</a> <a href="/tags/%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%B5%8B%E8%AF%95%E6%B5%81%E7%A8%8B/" style="font-size: 10px;">客户端测试流程</a> <a href="/tags/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" style="font-size: 10px;">常用命令</a> <a href="/tags/%E6%8A%93%E5%8C%85/" style="font-size: 10px;">抓包</a> <a href="/tags/%E6%8E%A5%E5%8F%A3%E5%B9%B3%E5%8F%B0/" style="font-size: 10px;">接口平台</a> <a href="/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">接口测试</a> <a href="/tags/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">测试工具</a> <a href="/tags/%E6%B5%8B%E8%AF%95%E6%B5%81%E7%A8%8B/" style="font-size: 13.33px;">测试流程</a> <a href="/tags/%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B/" style="font-size: 10px;">测试用例</a> <a href="/tags/%E6%B5%8B%E8%AF%95%E7%AD%96%E7%95%A5/" style="font-size: 13.33px;">测试策略</a> <a href="/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/" style="font-size: 10px;">第三方库</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">九月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/04/03/tcpdump-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7%E6%8A%93%E5%8C%85/">tcpdump 命令行工具抓包</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/03/%E5%B8%B8%E7%94%A8%E8%BE%85%E5%8A%A9%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/">常用辅助测试工具“</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/25/Locust-%E4%BB%BB%E6%84%8F%E9%9D%9Ehttp%E5%8D%8F%E8%AE%AE%E7%9A%84%E6%8E%A5%E5%8F%A3%E5%8E%8B%E6%B5%8B%E5%AE%9E%E7%8E%B0/">Locust 任意非http协议的接口压测实现</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/03/Python-%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/">Python编码规范</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/25/Locust-%E5%88%86%E5%B8%83%E5%BC%8F%E5%8E%8B%E6%B5%8B/">Locust 分布式压测</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 TH·tester<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

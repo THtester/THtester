@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Android App 压力测试 Monkeyrunner | TH·tester</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Android App 压力测试 Monkeyrunner1、什么时候开展压力测试 首轮功能测试通过后 下班后的夜间进行b 2、压力测试结果 CRASH：崩溃, 应用程序在使用中，非正常退出 ANR：Application Not Responding 应用程序无响应 3、CRASH 结果 出现 crash 后, 将 cmd 里面的，CRASH 下面的 log 信息取出分析 出现崩溃后, 可以记录">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android App 压力测试 Monkeyrunner">
+<meta property="og:url" content="http://yoursite.com/2016/04/18/Android-App-%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95-Monkeyrunner/index.html">
+<meta property="og:site_name" content="TH·tester">
+<meta property="og:description" content="Android App 压力测试 Monkeyrunner1、什么时候开展压力测试 首轮功能测试通过后 下班后的夜间进行b 2、压力测试结果 CRASH：崩溃, 应用程序在使用中，非正常退出 ANR：Application Not Responding 应用程序无响应 3、CRASH 结果 出现 crash 后, 将 cmd 里面的，CRASH 下面的 log 信息取出分析 出现崩溃后, 可以记录">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2016-04-18T13:39:18.000Z">
+<meta property="article:modified_time" content="2020-06-03T04:40:58.533Z">
+<meta property="article:author" content="TH·tester">
+<meta property="article:tag" content="Android">
+<meta property="article:tag" content="压力测试">
+<meta property="article:tag" content="Monkey">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="TH·tester" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">TH·tester</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">90后，软件测试，女又力力成为一名🐮🍺的测试传奇，嘻嘻嘻&lt;(￣︶￣)↗[GO!]</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Android-App-压力测试-Monkeyrunner" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2016/04/18/Android-App-%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95-Monkeyrunner/" class="article-date">
+  <time class="dt-published" datetime="2016-04-18T13:39:18.000Z" itemprop="datePublished">2016-04-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Android App 压力测试 Monkeyrunner
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="Android-App-压力测试-Monkeyrunner"><a href="#Android-App-压力测试-Monkeyrunner" class="headerlink" title="Android App 压力测试 Monkeyrunner"></a>Android App 压力测试 Monkeyrunner</h3><p><strong>1、什么时候开展压力测试</strong></p>
+<p>首轮功能测试通过后</p>
+<p>下班后的夜间进行b</p>
+<p><strong>2、压力测试结果</strong></p>
+<p>CRASH：崩溃, 应用程序在使用中，非正常退出</p>
+<p>ANR：Application Not Responding 应用程序无响应</p>
+<p><strong>3、CRASH 结果</strong></p>
+<p>出现 crash 后, 将 cmd 里面的，CRASH 下面的 log 信息取出分析</p>
+<p>出现崩溃后, 可以记录下 seed 值，好进行崩溃的复现<a id="more"></a></p>
+<p><strong>4、ANR 结果</strong></p>
+<p>查看 ANR 下面的 log 信息</p>
+<p>出现 ANR，记录下日志，及 seed 值，可以进行后期的复现</p>
+<p>也可以通过查看文件，看 anr 信息</p>
+<p>adb shell -&gt; cd /data/anr 目录里找到 anr 的文件</p>
+<h4 id="简单回顾下-Monkey"><a href="#简单回顾下-Monkey" class="headerlink" title="简单回顾下 Monkey"></a><strong>简单回顾下 Monkey</strong></h4><p><strong>1、Android Monkey</strong></p>
+<p>基本命令：</p>
+<p>monkey -p com.baidu.searchbox –monitor-native-crashes –ignore-timeouts –kill-process-after-error –pct-touch 50 –pct-motion 30 –pct-appswitch 20 -s 100 -v -v –throttle 200 100 &gt; /sdcard/tmp/monkey_sdk.log</p>
+<p><strong>2、tv.panda.test.monkey</strong></p>
+<p>基本命令：</p>
+<p>adb shell CLASSPATH=/sdcard/monkey.<a href="http://jar/sdcard/framework.jar" target="_blank" rel="noopener">jar:/sdcard/framework.jar</a> exec app_process /system/bin tv.panda.test.monkey.Monkey -p com.baidu.searchbox –uiautomatormix –running-minutes 180 -v –throttle 100 &gt;./monkeyout.txt 2&gt;./monkeyerr.txt &amp;</p>
+<p><strong>Monkeyrunner 同 Monkey 的区别</strong></p>
+<p>Monkey 工具直接运行在 adb shell 中，生成用户或系统的伪随机事件流</p>
+<p>Monkeyrunner 工具则是在工作站上通过 API 定义的特定命令和事件控制设备或模拟器</p>
+<p>Monkeyrunner 支持自己编写插件、控制事件、随时截图、记录和回放</p>
+<h4 id="MonkeyRunner-APIs（Monkeyruner-脚本为-python-语言编写）"><a href="#MonkeyRunner-APIs（Monkeyruner-脚本为-python-语言编写）" class="headerlink" title="MonkeyRunner APIs（Monkeyruner 脚本为 python 语言编写）"></a><strong>MonkeyRunner APIs（Monkeyruner 脚本为 python 语言编写）</strong></h4><p>MonkeyRunner 用来连接设备或者模拟器</p>
+<p>MonkeyDevice 提供安装/卸载应用, 发送模拟事件</p>
+<p>MonkeyImage 完成图像保存及对比的操作</p>
+<p><strong>1、MonkeyRunner</strong></p>
+<p>alert 警告框</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MonkeyRunner.alert(<span class="string">'hello monkey friend'</span>,<span class="string">'this is a title'</span>,<span class="string">'OK'</span>)</span><br></pre></td></tr></table></figure>
+
+<p>waitForConnection 等待设备连接，有多个 device, 需要指明具体 device id</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MonkeyRunner.waitForConnection(float timeouts, string deviceid)</span><br></pre></td></tr></table></figure>
+
+<p>sleep 添加等待时间</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MonkeyRunner.sleep(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+<p><strong>2、MonkeyDevice</strong></p>
+<p>drag 拖动（起点位置, 终点位置, 手势持续的时间, 插值点的步数默认10）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">device.drag(tuple start, tuple end, float duration, integer steps)</span><br></pre></td></tr></table></figure>
+
+<p>press 按键</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">device.press(string keycode, dictionary type)</span><br></pre></td></tr></table></figure>
+
+<p>startActivity 启动应用</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">device.startActivity(package+<span class="string">'/'</span>+activity)</span><br></pre></td></tr></table></figure>
+
+<p>touch 点击（x坐标，y坐标）type: DOWN, UP, DOWN_AND_UP</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">device.touch(integer x, integer y, integer type)</span><br></pre></td></tr></table></figure>
+
+<p>type 输入</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">device.type(string message)</span><br></pre></td></tr></table></figure>
+
+<p>takeSnapshot 截屏</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">device.takeSnapshot()</span><br></pre></td></tr></table></figure>
+
+<p><strong>3、MonkeyImage</strong></p>
+<p>sameAs 图像对比</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">boolean sameAs(MonkeyImage other, float percent)</span><br></pre></td></tr></table></figure>
+
+<p>writetoFile 保存图像文件，path: 文件存储的路径，format: 图像文件的格式png ,JPG等</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">void writeToFile(string path, string format)</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="Monkeyrunner-的测试类型"><a href="#Monkeyrunner-的测试类型" class="headerlink" title="Monkeyrunner 的测试类型"></a><strong>Monkeyrunner 的测试类型</strong></h4><p>1、多设备控制</p>
+<p>Monkeyrunner API 可以跨多个设备或模拟器实施测试套件</p>
+<p>2、功能测试</p>
+<p>Monkeyrunner 可以为一个应用自动执行一次功能测试（提供按键或触摸事件的输入数值，然后观察输出结果的截屏）</p>
+<p>3、回归测试</p>
+<p>Monkeyrunner 可以运行某个应用，并将其结果截屏与既定已知正确的结果截屏相比较，以此测试应用的稳定性</p>
+<p>4、可扩展的自动化</p>
+<p>由于 Monkeyrunner 是一个 API 工具包，可以基于 Python 模块和程序开发一整套系统，以此来控制 Android 设备</p>
+<p><strong>运行 Monkeyrunner</strong></p>
+<p>1、代码文件运行 Monkeyrunner</p>
+<p>2、在交互式对话中输入 Monkeyrunner 语句</p>
+<p>不论使用哪种方式，需要调用 SDK 目录的 tools/bin/monkeyrunner 命令</p>
+<p>**<br>**</p>
+<h4 id="运行所需环境：-JDK，-Android-SDK，Python"><a href="#运行所需环境：-JDK，-Android-SDK，Python" class="headerlink" title="运行所需环境：\JDK，*Android SDK，Python*"></a><strong>运行所需环境：\</strong>JDK，*<em>Android SDK，Python*</em></h4><p>测试 monkeyrunner 是否可用</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">monkeyrunner</span><br></pre></td></tr></table></figure>
+
+<p>交互对话环境，Monkeyrunner 基本语法</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">monkeyrunner -plugin &lt;plugin_jar&gt; &lt;program_filename&gt; &lt;program_options&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>如果提供一个文件名作为运行参数，则 Monkeyrunner 将视文件内容为 Python 程序，并加以运行</strong></p>
+<p>runner_monkey.py 代码示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#coding=utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">from</span> com.android.monkeyrunner <span class="keyword">import</span> MonkeyRunner <span class="keyword">as</span> mr</span><br><span class="line"><span class="keyword">from</span> com.android.monkeyrunner <span class="keyword">import</span> MonkeyDevice <span class="keyword">as</span> md</span><br><span class="line"><span class="keyword">from</span> com.android.monkeyrunner <span class="keyword">import</span> MonkeyImage <span class="keyword">as</span> mi</span><br><span class="line"></span><br><span class="line"><span class="comment">#connect device 连接设备</span></span><br><span class="line">device = mr.waitForConnection(<span class="number">5.0</span>, <span class="string">'e934cad0'</span>) <span class="comment"># 等待时间，设备</span></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> device:</span><br><span class="line">    <span class="comment">#print("fail", file=sys.stderr)</span></span><br><span class="line">    <span class="keyword">print</span> &gt;&gt; sys.stderr, <span class="string">"fail"</span></span><br><span class="line">    sys.exit(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#device.installPackage('/root/zww/baidu.apk')</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动指定 Activity</span></span><br><span class="line">run_component_name=<span class="string">'com.baidu.searchbox/.MainActivity'</span></span><br><span class="line">device.startActivity(component=run_component_name)</span><br><span class="line">mr.sleep(<span class="number">3.0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输入 hello world</span></span><br><span class="line">device.type(<span class="string">'hello world'</span>)</span><br><span class="line"><span class="comment"># 输入回车</span></span><br><span class="line">device.press(<span class="string">'KEYCODE_ENTER'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 截图</span></span><br><span class="line">mr.sleep(<span class="number">3.0</span>)</span><br><span class="line">result = device.takeSnapshot()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 保存到文件</span></span><br><span class="line">result.writeToFile(<span class="string">'/root/zww/snapshot.png'</span>,<span class="string">'png'</span>)</span><br></pre></td></tr></table></figure>
+
+<p>备注：Android SDK/tools/uiautomatorviewer.bat 可用来获取手机的按钮的坐标</p>
+<p>运行 monkeyrunner：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">monkeyrunner runner_monkey.py</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="Monkeyrunner-录制（Windows-运行环境）"><a href="#Monkeyrunner-录制（Windows-运行环境）" class="headerlink" title="Monkeyrunner 录制（Windows 运行环境）"></a><strong>Monkeyrunner 录制（Windows 运行环境）</strong></h4><p>monkey_recorder.py 代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#coding:utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> com.android.monkeyrunner <span class="keyword">import</span> MonkeyRunner <span class="keyword">as</span> mr</span><br><span class="line"><span class="keyword">from</span> com.android.monkeyrunner.recorder <span class="keyword">import</span> MonkeyRecorder <span class="keyword">as</span> recorder</span><br><span class="line">device = mr.waitForConnection(<span class="number">5</span>, <span class="string">'e934cad0'</span>)</span><br><span class="line">recorder.start(device)</span><br></pre></td></tr></table></figure>
+
+<p>启动 monkeyrunner 的录制工具：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">monkeyrunner monkey_recorder.py</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="Monkeyrunner-回放"><a href="#Monkeyrunner-回放" class="headerlink" title="Monkeyrunner 回放"></a><strong>Monkeyrunner 回放</strong></h4><p>录制完成后，就可以进行回放，操作步骤如下：</p>
+<p>1、点击 Export Actions，导出我们录制时的操作，在本地生成一个文件，并根据需要命名：<a href="http://xxx.mr/" target="_blank" rel="noopener">xxx.mr</a></p>
+<p>2、将录制的文件（假如命名为 <a href="http://test.mr/" target="_blank" rel="noopener">test.mr</a>），拷贝到和 monkeyrunner 同级目录下，即 sdk/tools</p>
+<p>3、将回放的脚本 monkey_playback.py，同样保存在 sdk/tools 下</p>
+<p>monkey_playback.py 代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#coding:utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">from</span> com.android.monkeyrunner <span class="keyword">import</span> MonkeyRunner <span class="keyword">as</span> mr</span><br><span class="line"> </span><br><span class="line">CMD_MAP = &#123;</span><br><span class="line">    <span class="string">'TOUCH'</span>: <span class="keyword">lambda</span> dev, arg: dev.touch(**arg),</span><br><span class="line">    <span class="string">'DRAG'</span>: <span class="keyword">lambda</span> dev, arg: dev.drag(**arg),</span><br><span class="line">    <span class="string">'TYPE'</span>: <span class="keyword">lambda</span> dev, arg: dev.type(**arg),</span><br><span class="line">    <span class="string">'PRESS'</span>: <span class="keyword">lambda</span> dev, arg: dev.press(**arg),</span><br><span class="line">    <span class="string">'WAIT'</span>: <span class="keyword">lambda</span> dev, arg: mr.sleep(**arg)</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">process_file</span><span class="params">(f, device)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> f:</span><br><span class="line">        (cmd, rest) = line.split(<span class="string">'|'</span>)</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            rest = eval(rest)</span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            <span class="keyword">print</span> <span class="string">'unable to parse options'</span></span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        <span class="keyword">if</span> cmd <span class="keyword">not</span> <span class="keyword">in</span> CMD_MAP:</span><br><span class="line">            <span class="keyword">print</span> <span class="string">'unknown command: '</span> + cmd</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        CMD_MAP[cmd](device, rest)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    file = sys.argv[<span class="number">1</span>]</span><br><span class="line">    f = open(file, <span class="string">'r'</span>)</span><br><span class="line">    device = mr.waitForConnection()</span><br><span class="line">    process_file(f, device)</span><br><span class="line">    f.close()</span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+<p>在 cmd 命令行中输入命令，运行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">monkeyrunner monkey_playback.py test.mr</span><br></pre></td></tr></table></figure>
+
+
+
+<p>tv.panda.test.monkey</p>
+<p>与monkey对比优势：</p>
+<p>快</p>
+<p>稳：只进行有意义的操作，防误点状态栏，不会乱断网、卸载应用</p>
+<p>支持脱机运行，错误日志可以记录到手机本地</p>
+<p>支持自定义：控件黑白名单，自定义操作步骤，控件操作优先级</p>
+<p>截图支持</p>
+<p>项目地址：<a href="https://github.com/zhangzhao4444/Maxim" target="_blank" rel="noopener">https://github.com/zhangzhao4444/Maxim</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">adb push framework.jar /sdcard</span><br><span class="line">adb push monkey.jar /sdcard</span><br></pre></td></tr></table></figure>
+
+
+
+<p>脱机运行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell <span class="string">"CLASSPATH=/sdcard/monkey.jar:/sdcard/framework.jar exec app_process /system/bin tv.panda.test.monkey.Monkey -p com.test.test1 -p com.test.test2 -p com.test.test3 --uiautomatormix --running-minutes 180 -v --throttle 500 &gt;/sdcard/monkeyout.txt 2&gt;/sdcard/monkeyerr.txt &amp;"</span></span><br></pre></td></tr></table></figure>
+
+<p>参数含义：</p>
+<p>-p com.test.test：指定要运行的包名，需要替换成你在测试的应用</p>
+<p>–uiautomatormix：遍历方式，其它两个不稳定，可以默认用这个</p>
+<p>–running-minutes 2880：指定运行时间，单位是分钟，2880就是2天</p>
+<p>-v：log输出级别</p>
+<p>–throttle 500：每个动作之间间隔，如果不加会以尽可能快的速度发送指令。为了模拟正常操作，一般设置在300以上</p>
+<p>2&gt;/sdcard/monkeyerr.txt：如果运行过程中出现崩溃卡死，错误文件会保存在这里。</p>
+<p>连USB运行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell CLASSPATH=/sdcard/monkey.jar:/sdcard/framework.jar <span class="built_in">exec</span> app_process /system/bin tv.panda.test.monkey.Monkey -p com.test.test --uiautomatormix --running-minutes 60 -v -v &gt; ./<span class="built_in">test</span>/monkey.log 2&gt; ./<span class="built_in">test</span>/monkeyerr.log</span><br></pre></td></tr></table></figure>
+
+
+
+<p>结束运行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">adb shell ps | grep monkey</span><br><span class="line">adb shell <span class="built_in">kill</span> &#123;pid&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>运行结束后，查看错误文件中是否有报错信息，</p>
+<p>手机上：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">adb pull /sdcard/monkeyerr.txt</span><br><span class="line">adb pull /sdcard/monkeyout.txt</span><br></pre></td></tr></table></figure>
+
+<p>电脑上：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat ./<span class="built_in">test</span>/monkeyerr.log</span><br></pre></td></tr></table></figure>
+
+<p>在结果文件中，搜索crash，not responding，和你测试的包名，找出崩溃卡死等信息</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/04/18/Android-App-%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95-Monkeyrunner/" data-id="ckaywfoey0001ac9b3hik8pbt" data-title="Android App 压力测试 Monkeyrunner" class="article-share-link">分享</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Monkey/" rel="tag">Monkey</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95/" rel="tag">压力测试</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/06/03/Git-%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C%E5%92%8C%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          Git 基础操作和常用命令
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/01/06/%E6%B5%8B%E8%AF%95-%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">测试-发布流程</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/API/" rel="tag">API</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HttpRunner/" rel="tag">HttpRunner</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HttpRunnerManager/" rel="tag">HttpRunnerManager</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jmeter/" rel="tag">Jmeter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Locust/" rel="tag">Locust</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Monkey/" rel="tag">Monkey</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/adb/" rel="tag">adb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%93%E9%A1%B9%E6%B5%8B%E8%AF%95/" rel="tag">专项测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95/" rel="tag">压力测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B/" rel="tag">发布流程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%91%BD%E4%BB%A4/" rel="tag">命令</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%95/" rel="tag">安全测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%B5%8B%E8%AF%95%E6%B5%81%E7%A8%8B/" rel="tag">客户端测试流程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" rel="tag">常用命令</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%93%E5%8C%85/" rel="tag">抓包</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8E%A5%E5%8F%A3%E5%B9%B3%E5%8F%B0/" rel="tag">接口平台</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/" rel="tag">接口测试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/" rel="tag">测试工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%8B%E8%AF%95%E6%B5%81%E7%A8%8B/" rel="tag">测试流程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B/" rel="tag">测试用例</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%8B%E8%AF%95%E7%AD%96%E7%95%A5/" rel="tag">测试策略</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/" rel="tag">第三方库</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/API/" style="font-size: 10px;">API</a> <a href="/tags/Android/" style="font-size: 20px;">Android</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/HttpRunner/" style="font-size: 10px;">HttpRunner</a> <a href="/tags/HttpRunnerManager/" style="font-size: 10px;">HttpRunnerManager</a> <a href="/tags/Jmeter/" style="font-size: 10px;">Jmeter</a> <a href="/tags/Locust/" style="font-size: 10px;">Locust</a> <a href="/tags/Monkey/" style="font-size: 10px;">Monkey</a> <a href="/tags/Python/" style="font-size: 13.33px;">Python</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/adb/" style="font-size: 13.33px;">adb</a> <a href="/tags/%E4%B8%93%E9%A1%B9%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">专项测试</a> <a href="/tags/%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95/" style="font-size: 16.67px;">压力测试</a> <a href="/tags/%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B/" style="font-size: 10px;">发布流程</a> <a href="/tags/%E5%91%BD%E4%BB%A4/" style="font-size: 16.67px;">命令</a> <a href="/tags/%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">安全测试</a> <a href="/tags/%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%B5%8B%E8%AF%95%E6%B5%81%E7%A8%8B/" style="font-size: 10px;">客户端测试流程</a> <a href="/tags/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" style="font-size: 10px;">常用命令</a> <a href="/tags/%E6%8A%93%E5%8C%85/" style="font-size: 10px;">抓包</a> <a href="/tags/%E6%8E%A5%E5%8F%A3%E5%B9%B3%E5%8F%B0/" style="font-size: 10px;">接口平台</a> <a href="/tags/%E6%8E%A5%E5%8F%A3%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">接口测试</a> <a href="/tags/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">测试工具</a> <a href="/tags/%E6%B5%8B%E8%AF%95%E6%B5%81%E7%A8%8B/" style="font-size: 13.33px;">测试流程</a> <a href="/tags/%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B/" style="font-size: 10px;">测试用例</a> <a href="/tags/%E6%B5%8B%E8%AF%95%E7%AD%96%E7%95%A5/" style="font-size: 13.33px;">测试策略</a> <a href="/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/" style="font-size: 10px;">第三方库</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">九月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/04/03/tcpdump-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7%E6%8A%93%E5%8C%85/">tcpdump 命令行工具抓包</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/03/%E5%B8%B8%E7%94%A8%E8%BE%85%E5%8A%A9%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/">常用辅助测试工具“</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/25/Locust-%E4%BB%BB%E6%84%8F%E9%9D%9Ehttp%E5%8D%8F%E8%AE%AE%E7%9A%84%E6%8E%A5%E5%8F%A3%E5%8E%8B%E6%B5%8B%E5%AE%9E%E7%8E%B0/">Locust 任意非http协议的接口压测实现</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/03/Python-%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83/">Python编码规范</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/25/Locust-%E5%88%86%E5%B8%83%E5%BC%8F%E5%8E%8B%E6%B5%8B/">Locust 分布式压测</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 TH·tester<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
